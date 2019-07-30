@@ -9,10 +9,10 @@ import "./config/reactotron";
 import store from "./store";
 
 import ErrorBox from "./components/ErrorBox";
+import Footer from "./components/Footer";
 
-import { Container, Content } from "./styles/components";
+import { Container } from "./styles/components";
 import Navbar from "./components/Navbar";
-import Page from "./pages/Page";
 
 import Routes from "./routes";
 
@@ -22,9 +22,11 @@ const App = () => (
       <GlobalStyle />
       <Container>
         <Navbar />
-        <Page />
+
         <ErrorBox />
         <Routes />
+
+        <Footer />
       </Container>
     </BrowserRouter>
   </Provider>

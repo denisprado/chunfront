@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body,
-  #__next {
+  #root {
     height: 100%;
   }
 
@@ -52,13 +52,6 @@ const GlobalStyle = createGlobalStyle`
 
   .hero-image {
     border: 0px solid #fff;
-  }
-
-  .row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
   }
 
   .image-left {

@@ -1,38 +1,51 @@
+import _ from 'lodash';
 import React, { Component } from "react";
-import { Creators as PagesActions } from "../../store/ducks/pages";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Creators as PageDetailsActions } from "../../store/ducks/pageDetails";
+import PageData from './PageData'
 
 // import { Container } from './styles';
 
-class Pages extends Component {
+class Page extends Component {
   componentDidMount() {
-    const { getPagesRequest } = this.props;
-
-    getPagesRequest();
+    if (this.props.match) {
+      this.loadPageDetails();
+    }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match) {
+      const { id } = this.props.match.params;
+      if (prevProps.match.params.id !== id) {
+        this.loadPageDetails();
+      }
+    }
+  }
+
+  loadPageDetails = () => {
+    const { getPageDetailsRequest } = this.props;
+    const { id } = this.props.match.params;
+    getPageDetailsRequest(id);
+  };
+
   render() {
-    const { pages, match } = this.props;
+    const { page } = this.props;
+    console.log(page)
     return (
-      <div>
-        {!pages.loading &&
-          pages.data.map(
-            page =>
-              match.params.id === pages.id && <p key={page.id}>{page.index}</p>
-          )}
-      </div>
+      <PageData pageData={page} />
     );
   }
 }
 
 const mapStateToProps = state => ({
-  pages: state.pages
+  page: state.pageDetails.data
 });
+
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(PagesActions, dispatch);
+  bindActionCreators(PageDetailsActions, dispatch);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Pages);
+)(Page);

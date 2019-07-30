@@ -1,24 +1,15 @@
-import Link from 'next/link';
+import React from 'react';
+import { Link } from 'react-router-dom'
+import { Container } from './styles';
 
-const Footer = () => (
-  <>
-    <div>
-      <Link href="https://chun.46graus.com/">
-        <a>Chun Fotografia Copyright</a>
-      </Link>
-      <Link href="http://www.denisforigo.com">
-        <a>Criado por Denis Forigo</a>
-      </Link>
-    </div>
-    <style jsx>{`
-    div{
-      display: flex;
-      justify-content: space-between;
-      padding: 15px;
-      background: #363636;
-    }
-  `}</style>
-  </>
-)
+const Footer = () =>
+  <Container>
+    <Link to="/">
+      Chun Fotografia Copyright
+    </Link>
+    <Link href="http://www.denisforigo.com">
+      Criado por Denis Forigo
+    </Link>
+  </Container>;
 
 export default Footer;

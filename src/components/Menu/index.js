@@ -17,8 +17,9 @@ class Menu extends Component {
     return (
       <div>
         {!pages.loading
-          ? pages.data.map(page => <p key={page.id}>{page.title}</p>)
+          ? pages.data.map(page => <Link key={page.id} to={`/pages/${page.id}`}>{page.title}</Link>)
           : null}
+        <Link to={"/albums"}>albums</Link>
       </div>
     );
   }
