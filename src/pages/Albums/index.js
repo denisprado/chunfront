@@ -24,14 +24,14 @@ class Albums extends Component {
               ? albums.data.map(album => (
                 <Link key={album.id} href={`/a/${album.id}`}>
 
-                  {album.Files.map(file => (
+                  {album.thumbImage &&
                     <img
                       className="hero-image"
-                      src={file.url}
+                      src={album.thumbImage.url}
                       alt={album.title}
                       width="100%"
                     />
-                  ))}
+                  }
 
                 </Link>
               ))
