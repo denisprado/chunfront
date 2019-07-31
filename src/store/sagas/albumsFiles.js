@@ -7,7 +7,7 @@ import { Creators as ErrorActions } from "../ducks/error";
 export function* getAlbumsFiles(action) {
   try {
     const response = yield call(api.get,
-      `/albums/${action.payload.id}/files/${action.payload.initialId}`
+      `/albums/${action.payload.id}/files?page=${action.payload.initialId}`
     );
 
     yield put(AlbumsFilesActions.getAlbumFilesSuccess(response.data));

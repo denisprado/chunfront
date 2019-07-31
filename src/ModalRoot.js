@@ -2,26 +2,20 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Modal from "react-modal";
-/*import DeleteToolModal from './components/DeleteToolModal';
-import AddToolModal from './components/AddToolModal';*/
-
+import AlbumFilesModal from './pages/AlbumFiles';
+/*import AddToolModal from './components/AddToolModal';*/
+import { Redirect } from 'react-router-dom';
 Modal.setAppElement("#root");
-Modal.defaultStyles.overlay.backgroundColor = "rgba(23, 12, 58, 0.9)";
+Modal.defaultStyles.overlay.backgroundColor = "rgba(0, 0, 0, 0.9)";
 
 const MODAL_COMPONENTS = {
-  //DELETE_TOOL: DeleteToolModal,
+  ALBUM_FILES: AlbumFilesModal,
   //ADD_TOOL: AddToolModal,
 };
 
 const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
+
+
 };
 
 const mapStateToProps = state => ({
@@ -52,7 +46,7 @@ class ModalRoot extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false })
   }
 
   render() {

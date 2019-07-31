@@ -13,7 +13,7 @@ const Routes = () => (
     <Route path="/pages/:id" component={Page} />
     <Route exact path="/albums" component={Albums} />
     <Route exact path="/albums/:id" component={AlbumDetails} />
-    <Route path="/albums/:id/files/:initialId" component={AlbumFiles} />
+    <Route exact path="/albums/:id/files" component={AlbumFiles} />
   </Switch>
 );
 

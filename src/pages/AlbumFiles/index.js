@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import queryString from 'query-string'
 import { Creators as ActionAlbumFiles } from '../../store/ducks/albumFiles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -22,14 +23,18 @@ class AlbumFiles extends Component {
   }
 
   loadAlbumFiles = () => {
+
     const { getAlbumFilesRequest } = this.props;
-    const { id, initialId } = this.props.match.params;
+
+    const { id } = this.props.match.params;
+    const query = queryString
+      .parse(this.props.location.search, { parseNumbers: true })
+    const { initialId } = query.page;
     getAlbumFilesRequest(id, initialId);
   };
 
   render() {
     const { files } = this.props;
-    console.log(files)
     return <AlbumFilesData albumData={files} />;
   }
 }

@@ -58,6 +58,7 @@ const GlobalStyle = createGlobalStyle`
   .image-left {
     flex-direction: row-reverse;
   }
+
 `;
 
 export default GlobalStyle;

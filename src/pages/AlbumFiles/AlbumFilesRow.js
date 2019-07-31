@@ -6,6 +6,7 @@ const AlbumRow = ({ albumFilesRow }) => (
   <Container>
     <Content>
       <Row key={albumFilesRow.id}>
+        <Column col={1}></Column>
         <Column col={8}>
           <img
             src={albumFilesRow.url}
