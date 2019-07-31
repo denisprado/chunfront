@@ -15,11 +15,13 @@ import { Container } from "./styles/components";
 import Navbar from "./components/Navbar";
 
 import Routes from "./routes";
+import ModalRoot from "./ModalRoot";
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <GlobalStyle />
+      <ModalRoot />
       <Container>
         <Navbar />
 

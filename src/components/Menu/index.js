@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Creators as ActionTypes } from "../../store/ducks/pages";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-
-import { Container } from "./styles";
+import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import { Creators as ActionTypes } from "../../store/ducks/pages";
 
 class Menu extends Component {
   componentDidMount() {
@@ -17,7 +15,11 @@ class Menu extends Component {
     return (
       <div>
         {!pages.loading
-          ? pages.data.map(page => <Link key={page.id} to={`/pages/${page.id}`}>{page.title}</Link>)
+          ? pages.data.map(page => (
+              <Link key={page.id} to={`/pages/${page.id}`}>
+                {page.title}
+              </Link>
+            ))
           : null}
         <Link to={"/albums"}>albums</Link>
       </div>

@@ -1,9 +1,8 @@
-import _ from 'lodash';
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as PageDetailsActions } from "../../store/ducks/pageDetails";
-import PageData from './PageData'
+import PageData from "./PageData";
 
 // import { Container } from './styles';
 
@@ -31,10 +30,8 @@ class Page extends Component {
 
   render() {
     const { page } = this.props;
-    console.log(page)
-    return (
-      <PageData pageData={page} />
-    );
+    console.log(page);
+    return <PageData pageData={page} />;
   }
 }
 
