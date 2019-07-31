@@ -22,15 +22,18 @@ class Albums extends Component {
           <Grid col={4}>
             {albums
               ? albums.data.map(album => (
-                <Link key={album.id} href={`/a/${album.id}`}>
+                <Link key={album.id} to={`/albums/${album.id}`}>
 
                   {album.thumbImage &&
-                    <img
-                      className="hero-image"
-                      src={album.thumbImage.url}
-                      alt={album.title}
-                      width="100%"
-                    />
+                    <>
+                      <img
+                        className="hero-image"
+                        src={album.thumbImage.url}
+                        alt={album.title}
+                        width="100%"
+                      />
+                      <h3>{album.title}</h3>
+                    </>
                   }
 
                 </Link>

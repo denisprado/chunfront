@@ -23,9 +23,9 @@ const App = () => (
       <GlobalStyle />
       <ModalRoot />
       <Container>
+        <ErrorBox />
         <Navbar />
 
-        <ErrorBox />
         <Routes />
 
         <Footer />

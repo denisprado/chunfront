@@ -1,5 +1,5 @@
 import React from 'react'
-import { Column, Container, Content, Row, Grid } from '../../styles/components';
+import { Column, Container, Content, Row } from '../../styles/components';
 import ReactHtmlParser from 'react-html-parser';
 
 const PageRow = ({ pageRow }) => (

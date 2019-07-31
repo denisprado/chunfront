@@ -4,12 +4,16 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 import Page from "../pages/Page";
 import Albums from "../pages/Albums";
+import AlbumDetails from "../pages/AlbumDetails";
+import AlbumFiles from "../pages/AlbumFiles";
 
 const Routes = () => (
   <Switch>
     <Redirect exact from="/" to="/pages/1" />
     <Route path="/pages/:id" component={Page} />
-    <Route path="/albums" component={Albums} />
+    <Route exact path="/albums" component={Albums} />
+    <Route exact path="/albums/:id" component={AlbumDetails} />
+    <Route path="/albums/:id/files/:initialId" component={AlbumFiles} />
   </Switch>
 );
 
