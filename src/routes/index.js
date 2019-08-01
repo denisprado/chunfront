@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Page from "../pages/Page";
 import Albums from "../pages/Albums";
 import AlbumFiles from "../pages/AlbumFiles";
+import ContactForm from "../components/ContactForm";
 
 const Routes = () => (
   <Switch>
@@ -12,6 +13,7 @@ const Routes = () => (
     <Route path="/pages/:id" component={Page} />
     <Route exact path="/albums" component={Albums} />
     <Route exact path="/albums/:id/files" component={AlbumFiles} />
+    <Route exact path="/contato" component={ContactForm} />
   </Switch>
 );
 

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import queryString from "query-string";
+import { Link } from 'react-router-dom';
 import { Creators as ActionAlbumFiles } from "../../store/ducks/albumFiles";
+import { Creators as ActionAlbums } from "../../store/ducks/albums";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import ImageGallery from "react-image-gallery";
@@ -10,6 +12,7 @@ import { Row, Content, Column } from "../../styles/components";
 class AlbumFiles extends Component {
   componentDidMount() {
     if (this.props.match) {
+
       this.loadAlbumFiles();
     }
   }
@@ -24,14 +27,14 @@ class AlbumFiles extends Component {
   }
 
   loadAlbumFiles = () => {
-    const { getAlbumFilesRequest } = this.props;
+    const { getAlbumFilesRequest, getAlbumsRequest } = this.props;
     const { id } = this.props.match.params;
-
+    getAlbumsRequest(id)
     getAlbumFilesRequest(id);
   };
 
   render() {
-    const { files } = this.props;
+    const { files, albums } = this.props;
     const images = files.map(file => ({
       original: file.url,
       thumbnail: file.url
@@ -40,7 +43,24 @@ class AlbumFiles extends Component {
     return (
       <Content>
         <Row>
-          <Column col={8}>
+          <Column col={2}>
+            {albums && albums.map(album => (
+              <Link to={`/albums/${album.id}/files`}>
+                <Row>
+                  <Column col={2}><img
+                    className="hero-image"
+                    src={album.thumbImage.url}
+                    alt={album.title}
+                    width="100%"
+                  /></Column>
+                  <Column col={6}>
+                    <h3>{album.title}</h3>
+                  </Column>
+                </Row>
+              </Link>
+            ))}
+          </Column>
+          <Column col={6}>
             <ImageGallery items={images} />
           </Column>
         </Row>
@@ -50,12 +70,13 @@ class AlbumFiles extends Component {
 }
 
 const mapStateToProps = state => ({
+  albums: state.albums.data,
   files: state.albumFiles.data,
   page: state.albumFiles.page
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(ActionAlbumFiles, dispatch);
+  bindActionCreators({ ...ActionAlbumFiles, ...ActionAlbums }, dispatch);
 
 export default connect(
   mapStateToProps,

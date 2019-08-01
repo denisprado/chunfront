@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { Creators as ActionTypes } from "../../store/ducks/pages";
-
+import { StyledLink } from './styles'
 class Menu extends Component {
   componentDidMount() {
     const { getPagesRequest } = this.props;
@@ -16,12 +15,13 @@ class Menu extends Component {
       <div>
         {!pages.loading
           ? pages.data.map(page => (
-              <Link key={page.id} to={`/pages/${page.id}`}>
-                {page.title}
-              </Link>
-            ))
+            <StyledLink key={page.id} to={`/pages/${page.id}`}>
+              {page.title}
+            </StyledLink>
+          ))
           : null}
-        <Link to={"/albums"}>albums</Link>
+        <StyledLink to={"/albums"}>albums</StyledLink>
+        <StyledLink to={"/contato"}> contato </StyledLink>
       </div>
     );
   }

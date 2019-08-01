@@ -7,9 +7,9 @@ const Footer = () =>
     <Link to="/">
       Chun Fotografia Copyright
     </Link>
-    <Link to="http://www.denisforigo.com">
+    <a href="http://www.denisforigo.com">
       Criado por Denis Forigo
-    </Link>
+    </a>
   </Container>;
 
 export default Footer;

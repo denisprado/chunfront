@@ -9,9 +9,9 @@ import CloseIcon from "../../assets/images/close.svg";
 
 import { Container } from "./styles";
 
-const ErrorBox = ({ error: { message, visible }, hideError }) =>
+const ErrorBox = ({ error: { message, visible, ok }, hideError }) =>
   visible && (
-    <Container>
+    <Container ok={ok}>
       <p>{message}</p>
       <button type="button" onClick={hideError}>
         <img src={CloseIcon} alt="Fechar" />

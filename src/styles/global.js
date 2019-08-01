@@ -35,8 +35,6 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: blue;
-    padding-right: 15px;
     color: #9c9c9c;
     &:hover {
       color: #8a8a8a;
