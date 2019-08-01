@@ -14,7 +14,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-@media screen and (max-width: 684px) {
+  @media screen and (max-width: 684px) {
     margin: 0 10%;
     margin: 0 calc(100% / 10);
   }
@@ -22,14 +22,14 @@ export const Content = styled.div`
     margin: 0 16.66%;
     margin: 0 calc(100% / 6);
   }
-`
+`;
 
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-`
+`;
 
 export const Column = styled.div`
   flex-grow: ${props => (props.col ? props.col : 1)};

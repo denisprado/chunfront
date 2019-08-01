@@ -6,12 +6,15 @@ import { Creators as ErrorActions } from "../ducks/error";
 
 export function* getAlbumsFiles(action) {
   try {
-    const response = yield call(api.get,
-      `/albums/${action.payload.id}/files?page=${action.payload.initialId}`
+    const response = yield call(
+      api.get,
+      `/albums/${action.payload.id}/files?page=${action.payload.page}`
     );
 
     yield put(AlbumsFilesActions.getAlbumFilesSuccess(response.data));
   } catch (err) {
-    yield put(ErrorActions.setError("Não foi possível obter os detalhes da página"));
+    yield put(
+      ErrorActions.setError("Não foi possível obter os detalhes da página")
+    );
   }
 }

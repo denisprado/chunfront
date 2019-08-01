@@ -1,11 +1,16 @@
-import React from 'react'
-import _ from 'lodash';
-import AlbumFilesRow from './AlbumFilesRow'
+import _ from "lodash";
+import React from "react";
+import AlbumFilesRow from "./AlbumFilesRow";
 
-const AlbumFilesData = ({ albumData }) => (
+/*const AlbumFilesData = ({ albumData }) =>
   _(albumData)
     .map(file => <AlbumFilesRow key={file.id} albumFilesRow={file} />)
-    .value()
-)
+    .value();*/
 
+const AlbumFilesData = ({ albumData }) => console.log(albumData);
+
+/*  _(albumData)
+    .map(file => <AlbumFilesRow key={file.id} albumFilesRow={file} />)
+    .value();
+*/
 export default AlbumFilesData;

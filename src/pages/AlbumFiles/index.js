@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import queryString from 'query-string'
-import { Creators as ActionAlbumFiles } from '../../store/ducks/albumFiles'
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import AlbumFilesData from './AlbumFilesData'
+import React, { Component } from "react";
+import queryString from "query-string";
+import { Creators as ActionAlbumFiles } from "../../store/ducks/albumFiles";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import ImageGallery from "react-image-gallery";
+import { Row, Content, Column } from "../../styles/components";
 // import { Container } from './styles';
 
 class AlbumFiles extends Component {
@@ -23,24 +24,34 @@ class AlbumFiles extends Component {
   }
 
   loadAlbumFiles = () => {
-
     const { getAlbumFilesRequest } = this.props;
-
     const { id } = this.props.match.params;
-    const query = queryString
-      .parse(this.props.location.search, { parseNumbers: true })
-    const { initialId } = query.page;
-    getAlbumFilesRequest(id, initialId);
+
+    getAlbumFilesRequest(id);
   };
 
   render() {
     const { files } = this.props;
-    return <AlbumFilesData albumData={files} />;
+    const images = files.map(file => ({
+      original: file.url,
+      thumbnail: file.url
+    }));
+
+    return (
+      <Content>
+        <Row>
+          <Column col={8}>
+            <ImageGallery items={images} />
+          </Column>
+        </Row>
+      </Content>
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  files: state.albumFiles.data
+  files: state.albumFiles.data,
+  page: state.albumFiles.page
 });
 
 const mapDispatchToProps = dispatch =>
