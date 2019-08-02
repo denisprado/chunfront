@@ -3,13 +3,16 @@ import React from "react";
 import Logo from "../Logo";
 import Menu from "../Menu";
 
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 const Navbar = () => (
   <div>
     <Container>
-      <Logo />
-      <Menu />
+      <Content>
+
+        <Logo />
+        <Menu />
+      </Content>
     </Container>
   </div>
 );
