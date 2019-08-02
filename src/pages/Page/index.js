@@ -29,6 +29,7 @@ class Page extends Component {
   };
 
   render() {
+    console.log(this.props);
     const { page } = this.props;
     return <PageData pageData={page} />;
   }

@@ -1,18 +1,16 @@
 import React, { Component } from "react";
-import queryString from "query-string";
-import { Link } from 'react-router-dom';
+import ImageGallery from "react-image-gallery";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
 import { Creators as ActionAlbumFiles } from "../../store/ducks/albumFiles";
 import { Creators as ActionAlbums } from "../../store/ducks/albums";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import ImageGallery from "react-image-gallery";
-import { Row, Content, Column } from "../../styles/components";
+import { Column, Content, Row } from "../../styles/components";
 // import { Container } from './styles';
 
 class AlbumFiles extends Component {
   componentDidMount() {
     if (this.props.match) {
-
       this.loadAlbumFiles();
     }
   }
@@ -29,7 +27,7 @@ class AlbumFiles extends Component {
   loadAlbumFiles = () => {
     const { getAlbumFilesRequest, getAlbumsRequest } = this.props;
     const { id } = this.props.match.params;
-    getAlbumsRequest(id)
+    getAlbumsRequest(id);
     getAlbumFilesRequest(id);
   };
 
@@ -44,21 +42,24 @@ class AlbumFiles extends Component {
       <Content>
         <Row>
           <Column col={2}>
-            {albums && albums.map(album => (
-              <Link to={`/albums/${album.id}/files`}>
-                <Row>
-                  <Column col={2}><img
-                    className="hero-image"
-                    src={album.thumbImage.url}
-                    alt={album.title}
-                    width="100%"
-                  /></Column>
-                  <Column col={6}>
-                    <h3>{album.title}</h3>
-                  </Column>
-                </Row>
-              </Link>
-            ))}
+            {albums &&
+              albums.map(album => (
+                <Link to={`/albums/${album.id}/files`}>
+                  <Row>
+                    <Column col={2}>
+                      <img
+                        className="hero-image"
+                        src={album.thumbImage.url}
+                        alt={album.title}
+                        width="100%"
+                      />
+                    </Column>
+                    <Column col={6}>
+                      <h3>{album.title}</h3>
+                    </Column>
+                  </Row>
+                </Link>
+              ))}
           </Column>
           <Column col={6}>
             <ImageGallery items={images} />
