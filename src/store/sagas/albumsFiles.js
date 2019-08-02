@@ -8,7 +8,7 @@ export function* getAlbumsFiles(action) {
   try {
     const response = yield call(
       api.get,
-      `/albums/${action.payload.id}/files?page=${action.payload.page}`
+      `/albums/${action.payload.id}?files=true`
     );
 
     yield put(AlbumsFilesActions.getAlbumFilesSuccess(response.data));

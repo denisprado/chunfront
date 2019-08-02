@@ -32,6 +32,7 @@ class AlbumFiles extends Component {
   };
 
   render() {
+    console.log(this.props.files)
     const { files, albums } = this.props;
     const images = files.map(file => ({
       original: file.url,
@@ -44,7 +45,7 @@ class AlbumFiles extends Component {
           <Column col={2}>
             {albums &&
               albums.map(album => (
-                <Link to={`/albums/${album.id}/files`}>
+                <Link to={`/albums/${album.id}?files=true`}>
                   <Row>
                     <Column col={2}>
                       <img
