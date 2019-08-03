@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import GlobalStyle from "./styles/global";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,7 +19,7 @@ import ModalRoot from "./ModalRoot";
 
 const App = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    <Router>
       <GlobalStyle />
       <ModalRoot />
       <Container>
@@ -30,7 +30,7 @@ const App = () => (
 
         <Footer />
       </Container>
-    </BrowserRouter>
+    </Router>
   </Provider>
 );
 

@@ -14,6 +14,10 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
   @media screen and (max-width: 684px) {
     margin: 30px 10%;
     margin: 30px calc(100% / 10);
@@ -29,7 +33,7 @@ export const Row = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  `;
+`;
 
 export const Column = styled.div`
   flex-grow: ${props => (props.col ? props.col : 1)};
