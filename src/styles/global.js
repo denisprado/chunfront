@@ -66,7 +66,7 @@ const GlobalStyle = createGlobalStyle`
   .fade-appear-active,
   .fade-enter.fade-enter-active {
       opacity: 1;
-      transition: opacity 400ms linear 400ms;
+      transition: opacity 150ms linear 150ms;
   }
 
   .fade-exit {
@@ -75,7 +75,7 @@ const GlobalStyle = createGlobalStyle`
 
   .fade-exit.fade-exit-active {
       opacity: 0;
-      transition: opacity 400ms linear;
+      transition: opacity 150ms linear;
   }
 
 `;
