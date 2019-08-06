@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { HashLink as Link } from "react-router-hash-link";
+import { HashLink as NavLink } from "react-router-hash-link";
 export const Container = styled.div``;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
   margin-right: 15px;
 `;

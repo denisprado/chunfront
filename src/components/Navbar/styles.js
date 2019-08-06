@@ -5,8 +5,9 @@ export const Container = styled.div`
   top: 0;
   width: 100%;
   padding: 30px 15px;
-  background: #212121;
+  background: transparent;
   height: 80px;
+  z-index:99999;
 `;
 
 export const Content = styled.div`

@@ -2,6 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   a {
-    font-size: 28px;
+    font-size: 18px;
   }
 `;

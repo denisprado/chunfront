@@ -11,8 +11,11 @@ export default class Page extends Component {
 
     return (
       <Section>
-        <Row id={pageRow.title} key={pageRow.id}>
-          <Column col={2}>{ReactHtmlParser(pageRow.content)}</Column>
+
+        <Row relative id={pageRow.title}>
+          <Column col={3} absolute>
+            {ReactHtmlParser(pageRow.content)}
+          </Column>
           <Column col={6}>
             {
               <img
