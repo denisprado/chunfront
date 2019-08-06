@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Creators as ActionAlbums } from "../../store/ducks/albums";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { Container, Content, Grid, Column } from "../../styles/components";
-// import { Container } from './styles';
+import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import { Creators as ActionAlbums } from "../../store/ducks/albums";
+import { Column, Grid, Row, Section } from "../../styles/components";
 
 class Albums extends Component {
   componentDidMount() {
@@ -15,31 +14,31 @@ class Albums extends Component {
   render() {
     const { albums } = this.props;
     return (
-      <Container>
-        <Content>
+      <Section>
+        <Row id="albums">
           <Column col={8}>
             <Grid col={4}>
               {albums
                 ? albums.data.map(album => (
-                  <Link key={album.id} to={`/albums/${album.id}?files=true`}>
-                    {album.thumbImage && (
-                      <>
-                        <img
-                          className="hero-image"
-                          src={album.thumbImage.url}
-                          alt={album.title}
-                          width="100%"
-                        />
-                        <h3>{album.title}</h3>
-                      </>
-                    )}
-                  </Link>
-                ))
+                    <Link key={album.id} to={`/albums/${album.id}?files=true`}>
+                      {album.thumbImage && (
+                        <>
+                          <img
+                            className="hero-image"
+                            src={album.thumbImage.url}
+                            alt={album.title}
+                            width="100%"
+                          />
+                          <h3>{album.title}</h3>
+                        </>
+                      )}
+                    </Link>
+                  ))
                 : null}
             </Grid>
           </Column>
-        </Content >
-      </Container >
+        </Row>
+      </Section>
     );
   }
 }

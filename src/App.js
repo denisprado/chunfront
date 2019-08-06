@@ -10,8 +10,10 @@ import store from "./store";
 
 import ErrorBox from "./components/ErrorBox";
 import Footer from "./components/Footer";
-
-import { Container } from "./styles/components";
+import Albums from "./pages/Albums";
+import Page from "./pages/Page";
+import ContactForm from "./components/ContactForm";
+import { Container, Content } from "./styles/components";
 import Navbar from "./components/Navbar";
 
 import Routes from "./routes";
@@ -23,11 +25,14 @@ const App = () => (
       <GlobalStyle />
       <ModalRoot />
       <Container>
-        <ErrorBox />
         <Navbar />
-
-        <Routes />
-
+        <Content>
+          <ErrorBox />
+          <Routes />
+          <Page />
+          <Albums />
+          <ContactForm />
+        </Content>
         <Footer />
       </Container>
     </Router>

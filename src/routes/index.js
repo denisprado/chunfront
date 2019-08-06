@@ -1,35 +1,18 @@
 import React, { Component } from "react";
-
-import { Switch, Route, Redirect } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import Page from "../pages/Page";
-import Albums from "../pages/Albums";
+import { Route, Switch } from "react-router-dom";
 import AlbumFiles from "../pages/AlbumFiles";
-import ContactForm from "../components/ContactForm";
 
 class Routes extends Component {
   render() {
     return (
       <div>
-        <Route
-          render={({ location }) => (
-            <TransitionGroup>
-              <CSSTransition
-                key={location.key}
-                timeout={300}
-                classNames={"fade"}
-              >
-                <Switch>
-                  <Redirect exact from="/" to="/pages/1" />
-                  <Route path="/pages/:id" component={Page} />
-                  <Route exact path="/albums" component={Albums} />
-                  <Route exact path="/albums/:id" component={AlbumFiles} />
-                  <Route exact path="/contato" component={ContactForm} />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          )}
-        />
+        <Switch>
+          {/* <Redirect exact from="/" to="/pages/1" /> */}
+          {/* <Route path="/pages/:id" component={Page} /> */}
+          {/* <Route exact path="/albums" component={Albums} /> */}
+          <Route exact path="/albums/:id" component={AlbumFiles} />
+          {/* <Route exact path="/contato" component={ContactForm} /> } */}
+        </Switch>
       </div>
     );
   }

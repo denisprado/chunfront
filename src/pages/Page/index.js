@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Creators as PageDetailsActions } from "../../store/ducks/pageDetails";
+import { Creators as PagesActions } from "../../store/ducks/pages";
 import PageData from "./PageData";
-
-// import { Container } from './styles';
 
 class Page extends Component {
   componentDidMount() {
@@ -13,34 +11,23 @@ class Page extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.match) {
-      const { id } = this.props.match.params;
-      if (prevProps.match.params.id !== id) {
-        this.loadPageDetails();
-      }
-    }
-  }
-
   loadPageDetails = () => {
-    const { getPageDetailsRequest } = this.props;
-    const { id } = this.props.match.params;
-    getPageDetailsRequest(id);
+    const { getPagesRequest } = this.props;
+    getPagesRequest();
   };
 
   render() {
-    console.log(this.props);
-    const { page } = this.props;
-    return <PageData pageData={page} />;
+    const { pages } = this.props;
+    return <PageData pageData={pages} />;
   }
 }
 
 const mapStateToProps = state => ({
-  page: state.pageDetails.data
+  pages: state.pages.data
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(PageDetailsActions, dispatch);
+  bindActionCreators(PagesActions, dispatch);
 
 export default connect(
   mapStateToProps,

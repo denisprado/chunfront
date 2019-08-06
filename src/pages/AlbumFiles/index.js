@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { Creators as ActionAlbumFiles } from "../../store/ducks/albumFiles";
 import { Creators as ActionAlbums } from "../../store/ducks/albums";
-import { Container, Column, Content, Row } from "../../styles/components";
-// import { Container } from './styles';
+import { Section, Column, Row } from "../../styles/components";
 
 class AlbumFiles extends Component {
   componentDidMount() {
@@ -32,7 +31,7 @@ class AlbumFiles extends Component {
   };
 
   render() {
-    console.log(this.props.files)
+    console.log(this.props.files);
     const { files, albums } = this.props;
     const images = files.map(file => ({
       original: file.url,
@@ -40,35 +39,33 @@ class AlbumFiles extends Component {
     }));
 
     return (
-      <Container>
-        <Content>
-          <Row>
-            <Column col={2}>
-              {albums &&
-                albums.map(album => (
-                  <Link to={`/albums/${album.id}?files=true`}>
-                    <Row>
-                      <Column col={2}>
-                        <img
-                          className="hero-image"
-                          src={album.thumbImage.url}
-                          alt={album.title}
-                          width="100%"
-                        />
-                      </Column>
-                      <Column col={6}>
-                        <h3>{album.title}</h3>
-                      </Column>
-                    </Row>
-                  </Link>
-                ))}
-            </Column>
-            <Column col={6}>
-              <ImageGallery items={images} />
-            </Column>
-          </Row>
-        </Content>
-      </Container>
+      <Section>
+        <Row id="albumsFiles">
+          <Column col={2}>
+            {albums &&
+              albums.map(album => (
+                <Link to={`/albums/${album.id}?files=true`}>
+                  <Row>
+                    <Column col={2}>
+                      <img
+                        className="hero-image"
+                        src={album.thumbImage.url}
+                        alt={album.title}
+                        width="100%"
+                      />
+                    </Column>
+                    <Column col={6}>
+                      <h3>{album.title}</h3>
+                    </Column>
+                  </Row>
+                </Link>
+              ))}
+          </Column>
+          <Column col={6}>
+            <ImageGallery items={images} />
+          </Column>
+        </Row>
+      </Section>
     );
   }
 }

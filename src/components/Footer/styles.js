@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;  
+  display: flex;
   justify-content: space-between;
   padding: 15px;
-  background: #626262;
+  background: #212121;
 `;

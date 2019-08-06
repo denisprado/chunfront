@@ -50,34 +50,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 100;
   }
 
-  .hero-image {
-    border: 0px solid #fff;
-  }
-
-  .image-left {
-    flex-direction: row-reverse;
-  }
-  
-  .fade-appear,
-  .fade-enter {
-      opacity: 0;
-      z-index: 1;
-  }
-  .fade-appear-active,
-  .fade-enter.fade-enter-active {
-      opacity: 1;
-      transition: opacity 150ms linear 150ms;
-  }
-
-  .fade-exit {
-      opacity: 1;
-  }
-
-  .fade-exit.fade-exit-active {
-      opacity: 0;
-      transition: opacity 150ms linear;
-  }
-
 `;
 
 export default GlobalStyle;

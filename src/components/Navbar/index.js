@@ -9,7 +9,6 @@ const Navbar = () => (
   <div>
     <Container>
       <Content>
-
         <Logo />
         <Menu />
       </Content>

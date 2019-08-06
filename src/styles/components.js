@@ -6,25 +6,24 @@ export const Grid = styled.div`
   grid-template-columns: repeat(${props => (props.col ? props.col : 8)}, 1fr);
 `;
 
-export const Container = styled.div`
-  height: 100%;
+export const Container = styled.div``;
+
+export const Section = styled.div`
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin: 30px;
 `;
 
 export const Content = styled.div`
-  position: absolute;
-  top: 80px;
-  left: 0;
-  right: 0;
   @media screen and (max-width: 684px) {
-    margin: 30px 10%;
-    margin: 30px calc(100% / 10);
+    width: 83.33vw;
+    margin: 30px auto;
+    margin: 30px auto;
   }
   @media screen and (min-width: 685px) {
-    margin: 30px 16.66%;
-    margin: 30px calc(100% / 6);
+    width: 85vw;
+    margin: 30px auto;
+    margin: 30px auto;
   }
 `;
 
