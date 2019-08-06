@@ -13,10 +13,10 @@ export default class Page extends Component {
       <Section>
 
         <Row relative id={pageRow.title}>
-          <Column col={3} absolute>
+          <Column col={3} top={2} left={3} absolute bg>
             {ReactHtmlParser(pageRow.content)}
           </Column>
-          <Column col={6}>
+          <Column col={12}>
             {
               <img
                 src={image && image.url}

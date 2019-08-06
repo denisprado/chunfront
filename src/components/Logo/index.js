@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Container } from "./styles";
+
+import { Container, StyledLink } from "./styles";
 
 const Logo = () => (
   <Container>
-    <Link to="/">
+    <StyledLink smooth to="#top">
       <strong>CHUN</strong> FOTOGRAFIA
-    </Link>
+    </StyledLink>
   </Container>
 );
 

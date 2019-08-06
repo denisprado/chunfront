@@ -6,7 +6,7 @@ import Menu from "../Menu";
 import { Container, Content } from "./styles";
 
 const Navbar = () => (
-  <div>
+  <div id="top">
     <Container>
       <Content>
         <Logo />

@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import { Creators as ActionAlbums } from "../../store/ducks/albums";
 import { Column, Grid, Row, Section } from "../../styles/components";
 
+
 class Albums extends Component {
   componentDidMount() {
     const { getAlbumsRequest } = this.props;
@@ -14,26 +15,31 @@ class Albums extends Component {
   render() {
     const { albums } = this.props;
     return (
+
       <Section>
-        <Row id="albums">
-          <Column col={8}>
-            <Grid col={4}>
+        <Row col={6} id="albums">
+          <Column col={12}>
+            <Grid col={2}>
               {albums
                 ? albums.data.map(album => (
-                    <Link key={album.id} to={`/albums/${album.id}?files=true`}>
-                      {album.thumbImage && (
-                        <>
+                  <Link key={album.id} to={`/albums/${album.id}?files=true`}>
+                    {album.thumbImage && (
+                      <Row relative>
+                        <Column col={12}>
                           <img
                             className="hero-image"
                             src={album.thumbImage.url}
                             alt={album.title}
                             width="100%"
                           />
+                        </Column>
+                        <Column absolute col={12} left={0} bottom={0} bg >
                           <h3>{album.title}</h3>
-                        </>
-                      )}
-                    </Link>
-                  ))
+                        </Column>
+                      </Row>
+                    )}
+                  </Link>
+                ))
                 : null}
             </Grid>
           </Column>

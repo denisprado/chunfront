@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import Modal from "react-modal";
 import AlbumFilesModal from "./pages/AlbumFiles";
 
@@ -17,11 +16,6 @@ const mapStateToProps = state => ({
 });
 
 class ModalRoot extends React.Component {
-  static propTypes = {
-    data: PropTypes.arrayOf({
-      modalType: PropTypes.shape().isRequired
-    }).isRequired
-  };
 
   constructor(props) {
     super(props);

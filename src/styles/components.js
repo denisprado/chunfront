@@ -6,10 +6,11 @@ export const Grid = styled.div`
   grid-template-columns: repeat(${props => (props.col ? props.col : 8)}, 1fr);
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+`;
 
 export const Section = styled.div`
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
 `;
 
@@ -22,19 +23,19 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 width: 100%;
+margin: 0 ${props => (props.col ? `${(((12 - props.col) * (100 / 12))) / 2}%` : null)};
 position: ${props => (props.relative ? 'relative' : null)};
-
 `;
 
 export const Column = styled.div`
-position: ${props => (props.absolute ? 'absolute' : null)};
-top: ${props => (props.absolute ? '180px' : null)};
-left: ${props => (props.absolute ? `${(props.col * (100 / 12))}%` : null)};
-width: ${props => (props.absolute ? `${(props.col * (100 / 12))}%` : null)};
+position: ${props => (props.absolute && 'absolute')};
+top: ${props => (props.top && `${(props.top * (100 / 12))}%`)};
+bottom: ${props => (props.bottom && `${(props.bottom * (100 / 12))}%`)};
+left: ${props => (props.left && `${(props.left * (100 / 12))}%`)};
+width: ${props => (props.absolute && `${(props.col * (100 / 12))}%`)};
 flex-grow: ${ props => (props.col ? props.col : 1)};
 flex-basis: 30px;
 flex-shrink: ${ props => (props.col ? props.col : 1)};
-margin-right: 30px;
-background-color: #212121;
-padding: 15px;
+background: ${props => (props.bg && 'rgba(33, 33, 33, 0.85)')};
+padding: ${props => (props.bg && `15px`)};
 `;

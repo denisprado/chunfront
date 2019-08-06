@@ -4,9 +4,10 @@ import { Creators as ErrorActions } from "../../store/ducks/error";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Yup from "yup";
-import { Form, Input } from "@rocketseat/unform";
+import { Form } from "@rocketseat/unform";
 import { Section, Row, Column } from "../../styles/components";
-// import { Container } from './styles';
+
+import { Input } from './styles';
 
 const schema = Yup.object().shape({
   name: Yup.string().required("Title is required"),
@@ -34,11 +35,14 @@ class ContactForm extends Component {
   render() {
     return (
       <Section>
-        <Row id="contato">
-          <Column col={2}>
-            <h2>Entre em contato conosco</h2>
+        <Row id="contato" col={8}>
+          <Column col={3}>
+            <h3>Entre em contato conosco</h3>
+            <p>Instagram</p>
+            <p>Facebook</p>
+            <p>Endereço</p>
           </Column>
-          <Column col={4}>
+          <Column col={5}>
             <Form
               schema={schema}
               id="contact-form"

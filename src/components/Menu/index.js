@@ -30,16 +30,18 @@ class Menu extends Component {
               key={page.id}
               smooth
               to={`#${page.title}`}
-              scroll={el => this.scrollWithOffset(el, 60)}
             >
               {page.title}
             </StyledLink>
           ))
           : null}
-        <StyledLink smooth to={"#albums"} scroll={el => this.scrollWithOffset(el, 60)} >
+        <StyledLink smooth to={"#albums"} scroll={el => this.scrollWithOffset(el, 60)}>
           albums
         </StyledLink>
-        <StyledLink smooth to={"#contato"} scroll={el => this.scrollWithOffset(el, 60)} >
+
+        {// scroll={el => this.scrollWithOffset(el, 60)}
+        }
+        <StyledLink smooth to={"#contato"} scroll={el => this.scrollWithOffset(el, 60)}>
           contato
         </StyledLink>
       </div>

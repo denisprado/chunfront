@@ -50,6 +50,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 100;
   }
 
+  .selected{
+    color:white;
+  }
+
 `;
 
 export default GlobalStyle;

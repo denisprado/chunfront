@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Container, Copyright, MadeBy } from './styles';
+import { Container, Content, Copyright, MadeBy } from './styles';
 
 const Footer = () =>
   <Container>
-    <Copyright>
-      <Link to="/">
-        Chun Fotografia Copyright
+    <Content>
+      <Copyright>
+        <Link to="/">
+          Chun Fotografia Copyright
       </Link>
-    </Copyright>
-    <MadeBy>
-      <a href="http://www.denisforigo.com">
-        Criado por Denis Forigo
+      </Copyright>
+      <MadeBy>
+        <a href="http://www.denisforigo.com">
+          Criado por Denis Forigo
       </a>
-    </MadeBy>
+      </MadeBy>
+    </Content>
   </Container>;
 
 export default Footer;
