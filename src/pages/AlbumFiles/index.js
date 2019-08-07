@@ -31,7 +31,6 @@ class AlbumFiles extends Component {
   };
 
   render() {
-    console.log(this.props.files);
     const { files, albums } = this.props;
     const images = files.map(file => ({
       original: file.url,

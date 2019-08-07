@@ -11,9 +11,8 @@ export default class Page extends Component {
 
     return (
       <Section>
-
         <Row relative id={pageRow.title}>
-          <Column col={3} top={2} left={3} absolute bg>
+          <Column col={3} top={3} left={2} absolute>
             {ReactHtmlParser(pageRow.content)}
           </Column>
           <Column col={12}>

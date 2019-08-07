@@ -9,9 +9,10 @@ import Navbar from "./components/Navbar";
 import "./config/reactotron";
 import ModalRoot from "./ModalRoot";
 import Albums from "./pages/Albums";
+import AlbumFiles from "./pages/AlbumFiles";
 import Page from "./pages/Page";
 import store from "./store";
-import { Container, Content } from "./styles/components";
+import { Container } from "./styles/components";
 import GlobalStyle from "./styles/global";
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
         <ErrorBox />
         <Page />
         <Albums />
+        <AlbumFiles />
         <ContactForm />
 
         <Footer />
