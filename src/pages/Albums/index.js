@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import scrollToElement from "scroll-to-element";
+import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { Creators as ActionAlbums } from "../../store/ducks/albums";
 import { Creators as ActionAlbumFiles } from "../../store/ducks/albumFiles";
 import { Column, Grid, Row, Section } from "../../styles/components";
-import { Container } from './styles'
+import { Container } from "./styles";
 import { BrowserRouter as Router } from "react-router-dom";
-import Routes from '../../routes'
+import Routes from "../../routes";
 
 class Albums extends Component {
   componentDidMount() {
@@ -15,9 +16,10 @@ class Albums extends Component {
     getAlbumsRequest();
   }
 
-  handleOpenAlbumFiles() {
+  async handleOpenAlbumFiles() {
     const { openAlbumFiles } = this.props;
-    openAlbumFiles();
+    await openAlbumFiles();
+    scrollToElement("#albumsFiles");
   }
 
   render() {
@@ -31,39 +33,43 @@ class Albums extends Component {
                 <Grid col={2}>
                   {albums
                     ? albums.data.map(album => (
-                      <Link
-                        key={album.id}
-                        onClick={() => this.handleOpenAlbumFiles()}
-                        to={`/albums/${album.id}?files=true`}
-                      >
-                        <Redirect to="#albumsFiles"></Redirect>
-                        {album.thumbImage && (
-                          <Row relative>
-                            <Router>
-
-                              <Column col={12}>
-                                <img
-                                  className="hero-image"
-                                  src={album.thumbImage.url}
-                                  alt={album.title}
-                                  width="100%"
-                                />
-                              </Column>
-                              <Column absolute col={12} left={0} bottom={0} bg>
-                                <h3>{album.title}</h3>
-                              </Column>
-                            </Router>
-                          </Row>
-                        )}
-                      </Link>
-                    ))
+                        <Link
+                          key={album.id}
+                          to={`/albums/${album.id}?files=true`}
+                          onClick={() => this.handleOpenAlbumFiles()}
+                        >
+                          {album.thumbImage && (
+                            <Row relative>
+                              <Router>
+                                <Column col={12}>
+                                  <img
+                                    className="hero-image"
+                                    src={album.thumbImage.url}
+                                    alt={album.title}
+                                    width="100%"
+                                  />
+                                </Column>
+                                <Column
+                                  absolute
+                                  col={12}
+                                  left={0}
+                                  bottom={0}
+                                  bg
+                                >
+                                  <h3>{album.title}</h3>
+                                </Column>
+                              </Router>
+                            </Row>
+                          )}
+                        </Link>
+                      ))
                     : null}
                 </Grid>
               </Column>
             </Row>
           </Section>
         </Container>
-        {isOpen &&
+        {isOpen && (
           <Container>
             <Section center>
               <Row bg col={12} id="albumsFiles">
@@ -73,7 +79,7 @@ class Albums extends Component {
               </Row>
             </Section>
           </Container>
-        }
+        )}
       </>
     );
   }
