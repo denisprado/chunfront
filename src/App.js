@@ -22,13 +22,10 @@ const App = () => (
       <ModalRoot />
       <Container>
         <Navbar />
-
         <ErrorBox />
         <Page />
         <Albums />
-        <AlbumFiles />
         <ContactForm />
-
         <Footer />
       </Container>
     </Router>

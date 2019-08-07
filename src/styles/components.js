@@ -7,11 +7,13 @@ export const Grid = styled.div`
 `;
 
 export const Container = styled.div`
+  width:100%;
 `;
 
 export const Section = styled.div`
   min-height: 90vh;
   display: flex;
+  align-items: ${props => props.center && 'center'};
 `;
 
 export const Content = styled.div`
@@ -25,6 +27,8 @@ flex-wrap: wrap;
 width: 100%;
 margin: 0 ${props => (props.col ? `${(((12 - props.col) * (100 / 12))) / 2}%` : null)};
 position: ${props => (props.relative ? 'relative' : null)};
+background: ${props => (props.bg && 'rgba(33, 33, 33, 0.85)')};
+padding: ${props => (props.bg && `30px`)};
 `;
 
 export const Column = styled.div`

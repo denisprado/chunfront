@@ -1,44 +1,52 @@
 export const Types = {
   GET_REQUEST: "albumFiles/GET_REQUEST",
   GET_SUCCESS: "albumFiles/GET_SUCCESS",
-  GET_NEXT: "albumFiles/GET_NEXT",
-  GET_PREV: "albumFiles/GET_PREV"
+  CLOSE_ALBUMS: "albumFiles/CLOSE_ALBUMS",
+  OPEN_ALBUMS: "albumFiles/OPEN_ALBUMS",
 };
 
 const INITIAL_STATE = {
   data: [],
-  page: 1,
+  open: false,
   loading: false
 };
 
 export default function albumFiles(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.GET_REQUEST:
-      return { ...state, loading: true, page: action.payload.page };
+      return { ...state, loading: true };
     case Types.GET_SUCCESS:
-      return { ...state, loading: false, data: action.payload.data };
-    case Types.GET_NEXT:
-      return { ...state, page: state.page + 1 };
-    case Types.GET_PREV:
-      return { ...state, page: state.page - 1 };
+      return {
+        ...state,
+        loading: false,
+        data: action.payload.data
+      };
+    case Types.CLOSE_ALBUMS:
+      return {
+        ...state, open: false
+      }
+    case Types.OPEN_ALBUMS:
+      return {
+        ...state, open: true,
+      }
     default:
       return state;
   }
 }
 
 export const Creators = {
-  getAlbumFilesRequest: (id, page) => ({
+  getAlbumFilesRequest: (id) => ({
     type: Types.GET_REQUEST,
-    payload: { id, page }
+    payload: { id }
   }),
   getAlbumFilesSuccess: data => ({
     type: Types.GET_SUCCESS,
     payload: { data }
   }),
-  getNextFile: () => ({
-    type: Types.GET_NEXT
+  closeAlbumFiles: () => ({
+    type: Types.CLOSE_ALBUMS,
   }),
-  getPrevFile: () => ({
-    type: Types.GET_PREV
+  openAlbumFiles: () => ({
+    type: Types.OPEN_ALBUMS,
   })
 };

@@ -2,16 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display:flex;
+  position:relative;
   bottom:0;
   height:60px;
   background: transparent;
+  width:100%;
 `;
 
 export const Content = styled.div`
+width:100%;
   display: flex;
-  flex-direction:column;
+  position:absolute;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 15px;
+  padding: 30px;
 `;
 
 export const MadeBy = styled.div``;

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import ImageGallery from "react-image-gallery";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { Creators as ActionAlbumFiles } from "../../store/ducks/albumFiles";
 import { Creators as ActionAlbums } from "../../store/ducks/albums";
-import { Section, Column, Row } from "../../styles/components";
+import { Container, Section, Column, Row } from "../../styles/components";
 
 class AlbumFiles extends Component {
   componentDidMount() {
@@ -38,33 +37,15 @@ class AlbumFiles extends Component {
     }));
 
     return (
-      <Section>
-        <Row id="albumsFiles">
-          <Column col={2}>
-            {albums &&
-              albums.map(album => (
-                <Link to={`/albums/${album.id}?files=true`}>
-                  <Row>
-                    <Column col={2}>
-                      <img
-                        className="hero-image"
-                        src={album.thumbImage.url}
-                        alt={album.title}
-                        width="100%"
-                      />
-                    </Column>
-                    <Column col={6}>
-                      <h3>{album.title}</h3>
-                    </Column>
-                  </Row>
-                </Link>
-              ))}
-          </Column>
-          <Column col={6}>
-            <ImageGallery items={images} />
-          </Column>
-        </Row>
-      </Section>
+      <Container>
+        <Section center>
+          <Row col={6} id="albums">
+            <Column col={12}>
+              <ImageGallery items={images} />
+            </Column>
+          </Row>
+        </Section>
+      </Container>
     );
   }
 }
