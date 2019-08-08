@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Column, Section, Row } from "../../styles/components";
 import ReactHtmlParser from "react-html-parser";
 
-// import { Container } from './styles';
-
 export default class Page extends Component {
   render() {
     const { pageRow } = this.props;
@@ -21,6 +19,7 @@ export default class Page extends Component {
                 src={image && image.url}
                 alt={image && image.path}
                 width="100%"
+                height="100%"
               />
             }
           </Column>

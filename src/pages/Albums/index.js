@@ -18,7 +18,6 @@ class Albums extends Component {
   async handleOpenAlbumFiles() {
     const { openAlbumFiles } = this.props;
     await openAlbumFiles();
-
   }
 
   render() {
@@ -26,7 +25,7 @@ class Albums extends Component {
 
     return (
       <>
-        {!isOpen &&
+        {!isOpen && (
           <Container>
             <Section center>
               <Row col={6} id="albums">
@@ -34,43 +33,43 @@ class Albums extends Component {
                   <Grid col={2}>
                     {albums
                       ? albums.data.map(album => (
-                        <Link
-                          key={album.id}
-                          to={`/albums/${album.id}`}
-                          onClick={() => this.handleOpenAlbumFiles()}
-                        >
-                          {album.thumbImage && (
-                            <Row relative>
-                              <Router>
-                                <Column col={12}>
-                                  <img
-                                    className="hero-image"
-                                    src={album.thumbImage.url}
-                                    alt={album.title}
-                                    width="100%"
-                                  />
-                                </Column>
-                                <Column
-                                  absolute
-                                  col={12}
-                                  left={0}
-                                  bottom={0}
-                                  bg
-                                >
-                                  <h3>{album.title}</h3>
-                                </Column>
-                              </Router>
-                            </Row>
-                          )}
-                        </Link>
-                      ))
+                          <Link
+                            key={album.id}
+                            to={`/albums/${album.id}`}
+                            onClick={() => this.handleOpenAlbumFiles()}
+                          >
+                            {album.thumbImage && (
+                              <Row relative>
+                                <Router>
+                                  <Column col={12}>
+                                    <img
+                                      className="hero-image"
+                                      src={album.thumbImage.url}
+                                      alt={album.title}
+                                      width="100%"
+                                    />
+                                  </Column>
+                                  <Column
+                                    absolute
+                                    col={12}
+                                    left={0}
+                                    bottom={0}
+                                    bg
+                                  >
+                                    <h3>{album.title}</h3>
+                                  </Column>
+                                </Router>
+                              </Row>
+                            )}
+                          </Link>
+                        ))
                       : null}
                   </Grid>
                 </Column>
               </Row>
             </Section>
           </Container>
-        }
+        )}
         {isOpen && (
           <Container>
             <Section center>

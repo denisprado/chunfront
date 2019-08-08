@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as ActionTypes } from "../../store/ducks/pages";
 import { StyledLink } from "./styles";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 class Menu extends Component {
   scrollWithOffset(el, offset) {
@@ -28,15 +28,15 @@ class Menu extends Component {
       <div>
         {!pages.loading
           ? pages.data.map(page => (
-            <StyledLink key={page.id} smooth to={`#${page.title}`}>
-              {!(page.title === "home") && page.title}
-            </StyledLink>
-          ))
+              <StyledLink key={page.id} smooth to={`#${page.title}`}>
+                {!(page.title === "home") && page.title}
+              </StyledLink>
+            ))
           : null}
         <StyledLink
           smooth
           to={"#albums"}
-          scroll={el => this.scrollWithOffset(el, 150)}
+          scroll={el => this.scrollWithOffset(el, 110)}
         >
           portifolio
         </StyledLink>
@@ -51,14 +51,10 @@ class Menu extends Component {
         >
           <FontAwesomeIcon icon={faEnvelope} />
         </StyledLink>
-        <StyledLink
-          to={"http://instagram.com"}
-        >
+        <StyledLink to={"http://instagram.com"}>
           <FontAwesomeIcon icon={faInstagram} />
         </StyledLink>
-        <StyledLink
-          to={"http://facebook.com"}
-        >
+        <StyledLink to={"http://facebook.com"}>
           <FontAwesomeIcon icon={faFacebook} />
         </StyledLink>
       </div>
