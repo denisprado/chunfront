@@ -9,7 +9,6 @@ import Navbar from "./components/Navbar";
 import "./config/reactotron";
 import ModalRoot from "./ModalRoot";
 import Albums from "./pages/Albums";
-import AlbumFiles from "./pages/AlbumFiles";
 import Page from "./pages/Page";
 import store from "./store";
 import { Container } from "./styles/components";

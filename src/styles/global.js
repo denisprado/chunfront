@@ -50,6 +50,12 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 100;
   }
 
+  h3 {
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+
   .selected{
     color:white;
   }

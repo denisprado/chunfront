@@ -7,14 +7,14 @@ import * as Yup from "yup";
 import { Form } from "@rocketseat/unform";
 import { Section, Row, Column } from "../../styles/components";
 
-import { Container, Input } from './styles';
+import { Container, Input, Button } from './styles';
 
 const schema = Yup.object().shape({
-  name: Yup.string().required("Title is required"),
+  name: Yup.string().required("Qual é o seu nome?"),
   email: Yup.string()
-    .email("The field needs to be filled with a valid email")
-    .required("Email is required"),
-  message: Yup.string().required("A description is required")
+    .email("Este email parece inválido.")
+    .required("Preciso de um email válido para poder te responder."),
+  message: Yup.string().required("Qual é a sua mensagem?")
 });
 
 class ContactForm extends Component {
@@ -51,7 +51,7 @@ class ContactForm extends Component {
               >
                 <Row>
                   <Column col={2}>
-                    <label for="name">Name</label>
+                    <label htmlFor="name">Nome</label>
                   </Column>
                   <Column col={6}>
                     <Input type="text" name="name" id="name" />
@@ -59,7 +59,7 @@ class ContactForm extends Component {
                 </Row>
                 <Row>
                   <Column col={2}>
-                    <label for="exampleInputEmail1">Email address</label>
+                    <label htmlFor="exampleInputEmail1">Email</label>
                   </Column>
                   <Column col={6}>
                     <Input type="email" name="email" id="email" />
@@ -67,13 +67,13 @@ class ContactForm extends Component {
                 </Row>
                 <Row>
                   <Column col={2}>
-                    <label for="message">Message</label>
+                    <label htmlFor="message">Mensagem</label>
                   </Column>
                   <Column col={6}>
                     <Input multiline name="message" rows="5" id="message" />
                   </Column>
                 </Row>
-                <button type="submit">Submit</button>
+                <Button type="submit">Enviar</Button>
               </Form>
             </Column>
           </Row>

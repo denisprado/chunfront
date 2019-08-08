@@ -4,7 +4,6 @@ import scrollToElement from "scroll-to-element";
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { Creators as ActionAlbums } from "../../store/ducks/albums";
-import { Creators as ActionAlbumFiles } from "../../store/ducks/albumFiles";
 import { Column, Grid, Row, Section } from "../../styles/components";
 import { Container } from "./styles";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -14,7 +13,6 @@ class Albums extends Component {
   componentDidMount() {
     const { getAlbumsRequest } = this.props;
     getAlbumsRequest();
-    console.tron.log(this.props)
   }
 
   async handleOpenAlbumFiles() {
@@ -25,51 +23,54 @@ class Albums extends Component {
 
   render() {
     const { albums, isOpen } = this.props;
+
     return (
       <>
-        <Container>
-          <Section center>
-            <Row col={6} id="albums">
-              <Column col={12}>
-                <Grid col={2}>
-                  {albums
-                    ? albums.data.map(album => (
-                      <Link
-                        key={album.id}
-                        to={`/albums/${album.id}?files=true`}
-                        onClick={() => this.handleOpenAlbumFiles()}
-                      >
-                        {album.thumbImage && (
-                          <Row relative>
-                            <Router>
-                              <Column col={12}>
-                                <img
-                                  className="hero-image"
-                                  src={album.thumbImage.url}
-                                  alt={album.title}
-                                  width="100%"
-                                />
-                              </Column>
-                              <Column
-                                absolute
-                                col={12}
-                                left={0}
-                                bottom={0}
-                                bg
-                              >
-                                <h3>{album.title}</h3>
-                              </Column>
-                            </Router>
-                          </Row>
-                        )}
-                      </Link>
-                    ))
-                    : null}
-                </Grid>
-              </Column>
-            </Row>
-          </Section>
-        </Container>
+        {!isOpen &&
+          <Container>
+            <Section center>
+              <Row col={6} id="albums">
+                <Column col={12}>
+                  <Grid col={2}>
+                    {albums
+                      ? albums.data.map(album => (
+                        <Link
+                          key={album.id}
+                          to={`/albums/${album.id}`}
+                          onClick={() => this.handleOpenAlbumFiles()}
+                        >
+                          {album.thumbImage && (
+                            <Row relative>
+                              <Router>
+                                <Column col={12}>
+                                  <img
+                                    className="hero-image"
+                                    src={album.thumbImage.url}
+                                    alt={album.title}
+                                    width="100%"
+                                  />
+                                </Column>
+                                <Column
+                                  absolute
+                                  col={12}
+                                  left={0}
+                                  bottom={0}
+                                  bg
+                                >
+                                  <h3>{album.title}</h3>
+                                </Column>
+                              </Router>
+                            </Row>
+                          )}
+                        </Link>
+                      ))
+                      : null}
+                  </Grid>
+                </Column>
+              </Row>
+            </Section>
+          </Container>
+        }
         {isOpen && (
           <Container>
             <Section center>
@@ -88,11 +89,11 @@ class Albums extends Component {
 
 const mapStateToProps = state => ({
   albums: state.albums,
-  isOpen: state.albumFiles.open
+  isOpen: state.albums.open
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ ...ActionAlbums, ...ActionAlbumFiles }, dispatch);
+  bindActionCreators(ActionAlbums, dispatch);
 
 export default connect(
   mapStateToProps,
