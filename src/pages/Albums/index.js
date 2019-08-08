@@ -14,6 +14,7 @@ class Albums extends Component {
   componentDidMount() {
     const { getAlbumsRequest } = this.props;
     getAlbumsRequest();
+    console.tron.log(this.props)
   }
 
   async handleOpenAlbumFiles() {
@@ -33,36 +34,36 @@ class Albums extends Component {
                 <Grid col={2}>
                   {albums
                     ? albums.data.map(album => (
-                        <Link
-                          key={album.id}
-                          to={`/albums/${album.id}?files=true`}
-                          onClick={() => this.handleOpenAlbumFiles()}
-                        >
-                          {album.thumbImage && (
-                            <Row relative>
-                              <Router>
-                                <Column col={12}>
-                                  <img
-                                    className="hero-image"
-                                    src={album.thumbImage.url}
-                                    alt={album.title}
-                                    width="100%"
-                                  />
-                                </Column>
-                                <Column
-                                  absolute
-                                  col={12}
-                                  left={0}
-                                  bottom={0}
-                                  bg
-                                >
-                                  <h3>{album.title}</h3>
-                                </Column>
-                              </Router>
-                            </Row>
-                          )}
-                        </Link>
-                      ))
+                      <Link
+                        key={album.id}
+                        to={`/albums/${album.id}?files=true`}
+                        onClick={() => this.handleOpenAlbumFiles()}
+                      >
+                        {album.thumbImage && (
+                          <Row relative>
+                            <Router>
+                              <Column col={12}>
+                                <img
+                                  className="hero-image"
+                                  src={album.thumbImage.url}
+                                  alt={album.title}
+                                  width="100%"
+                                />
+                              </Column>
+                              <Column
+                                absolute
+                                col={12}
+                                left={0}
+                                bottom={0}
+                                bg
+                              >
+                                <h3>{album.title}</h3>
+                              </Column>
+                            </Router>
+                          </Row>
+                        )}
+                      </Link>
+                    ))
                     : null}
                 </Grid>
               </Column>
