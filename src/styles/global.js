@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import "typeface-exo-2";
 import "react-image-gallery/styles/css/image-gallery.css";
 
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
