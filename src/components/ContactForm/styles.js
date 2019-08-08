@@ -12,15 +12,16 @@ export const Input = styled(UnformInput)`
   transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
   transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
 
-  &&::placeholder {
+  &::placeholder {
     color: inherit;
     /*Fix opacity issue on Firefox*/
     opacity: 1;
+    color: #c7c7c7; 
   }
 
   &&:focus,
   input[type="checkbox"]:focus + label {
-    background: #8a8a8a;
+    background: #999;
   }
 
   &&:focus {

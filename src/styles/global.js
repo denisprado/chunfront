@@ -60,6 +60,10 @@ const GlobalStyle = createGlobalStyle`
     color:white;
   }
 
+  .thumbnails{
+    border: 1px solid grey;
+  }
+
 `;
 
 export default GlobalStyle;

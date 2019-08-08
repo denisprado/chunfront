@@ -71,9 +71,9 @@ class ContactForm extends Component {
                   </Column>
                   <Column col={6}>
                     <Input multiline name="message" rows="5" id="message" />
+                    <Button type="submit">Enviar</Button>
                   </Column>
                 </Row>
-                <Button type="submit">Enviar</Button>
               </Form>
             </Column>
           </Row>
