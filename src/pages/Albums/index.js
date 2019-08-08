@@ -18,7 +18,7 @@ class Albums extends Component {
   async handleOpenAlbumFiles() {
     const { openAlbumFiles } = this.props;
     await openAlbumFiles();
-    scrollToElement("#albumsFiles");
+    //scrollToElement("#albumsFiles");
   }
 
   render() {

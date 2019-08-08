@@ -16,7 +16,7 @@ class AlbumFiles extends Component {
   }
 
   render() {
-    const { albums, match, closeAlbumFiles } = this.props;
+    const { albums, match } = this.props;
 
     let albumSelected = albums
       .filter(album => album.id === parseInt(match.params.id, 10))
