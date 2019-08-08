@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import scrollToElement from "scroll-to-element";
+
 import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { Creators as ActionAlbums } from "../../store/ducks/albums";
@@ -18,7 +18,7 @@ class Albums extends Component {
   async handleOpenAlbumFiles() {
     const { openAlbumFiles } = this.props;
     await openAlbumFiles();
-    //scrollToElement("#albumsFiles");
+
   }
 
   render() {

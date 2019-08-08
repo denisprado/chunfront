@@ -9,6 +9,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 
+import { ContainerAlbums } from './styles'
+
 class AlbumFiles extends Component {
   handleCloseAlbum() {
     const { closeAlbumFiles } = this.props;
@@ -29,62 +31,65 @@ class AlbumFiles extends Component {
     }));
 
     return (
-      <Container>
-        <Section center >
-          <Row col={12} id="albums">
 
-            <Column col={1}>
-              <Grid col={1}>
-                {albums
-                  ? albums.map(album => (
-                    <Link
-                      key={album.id}
-                      to={`/albums/${album.id}`}
-                      activeStyle={{
-                        fontWeight: "bold",
-                        border: '1px solid grey'
-                      }}
-                    >
-                      {album.thumbImage && (
-                        <Row relative>
-                          <Router>
-                            <Column col={12}>
-                              <img
-                                className="hero-image"
-                                src={album.thumbImage.url}
-                                alt={album.title}
-                                width="100%"
-                              />
-                            </Column>
-                            <Column
-                              absolute
-                              col={12}
-                              left={0}
-                              bottom={0}
-                              bg
-                            >
-                              <h3>{album.title}</h3>
-                            </Column>
-                          </Router>
-                        </Row>
-                      )}
-                    </Link>
-                  ))
-                  : null}
-              </Grid>
-            </Column>
-            <Column col={1}></Column>
-            <Column col={8}>
-              <ImageGallery items={images} thumbnailPosition="right" />
-            </Column>
-            <Column col={1}></Column>
-            <Column col={1}>
-              <Link to='#album' onClick={() => this.handleCloseAlbum()}>
-                <FontAwesomeIcon icon={faWindowClose} />
-              </Link>
-            </Column>
-          </Row>
-        </Section>
+      <Container>
+        <ContainerAlbums>
+          <Section center >
+            <Row col={12} id="albums">
+
+              <Column col={1}>
+                <Grid col={1}>
+                  {albums
+                    ? albums.map(album => (
+                      <Link
+                        key={album.id}
+                        to={`/albums/${album.id}`}
+                        activeStyle={{
+                          fontWeight: "bold",
+                          border: '1px solid grey'
+                        }}
+                      >
+                        {album.thumbImage && (
+                          <Row relative>
+                            <Router>
+                              <Column col={12}>
+                                <img
+                                  className="hero-image"
+                                  src={album.thumbImage.url}
+                                  alt={album.title}
+                                  width="100%"
+                                />
+                              </Column>
+                              <Column
+                                absolute
+                                col={12}
+                                left={0}
+                                bottom={0}
+                                bg
+                              >
+                                <h3>{album.title}</h3>
+                              </Column>
+                            </Router>
+                          </Row>
+                        )}
+                      </Link>
+                    ))
+                    : null}
+                </Grid>
+              </Column>
+              <Column col={1}></Column>
+              <Column col={8}>
+                <ImageGallery items={images} thumbnailPosition="right" />
+              </Column>
+              <Column col={1}></Column>
+              <Column col={1}>
+                <Link to='#album' onClick={() => this.handleCloseAlbum()}>
+                  <FontAwesomeIcon icon={faWindowClose} />
+                </Link>
+              </Column>
+            </Row>
+          </Section>
+        </ContainerAlbums>
       </Container>
     );
   }
