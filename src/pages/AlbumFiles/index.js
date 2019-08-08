@@ -6,7 +6,8 @@ import { NavLink as Link } from "react-router-dom";
 import { Creators as ActionAlbums } from "../../store/ducks/albums";
 import { Container, Section, Column, Row, Grid } from "../../styles/components";
 import { BrowserRouter as Router } from "react-router-dom";
-import CloseIcon from '../../assets/images/Icon-Close-2px.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 
 class AlbumFiles extends Component {
   handleCloseAlbum() {
@@ -79,8 +80,7 @@ class AlbumFiles extends Component {
             <Column col={1}></Column>
             <Column col={1}>
               <Link to='#album' onClick={() => this.handleCloseAlbum()}>
-                <i className="fa fa-close fa-5x fa-inverse" aria-hidden="true" />
-                Fechar Albums
+                <FontAwesomeIcon icon={faWindowClose} />
               </Link>
             </Column>
           </Row>
