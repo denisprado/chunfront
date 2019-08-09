@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Creators as PagesActions } from "../../store/ducks/pages";
 import PageData from "./PageData";
+import { Creators as AlbumsActions } from "../../store/ducks/albums";
+import { Creators as PagesActions } from "../../store/ducks/pages";
 
 class Page extends Component {
   componentDidMount() {
     if (this.props.match) {
       this.loadPageDetails();
     }
+    const { getAlbumsRequest } = this.props;
+    getAlbumsRequest();
   }
 
   loadPageDetails = () => {
+
     const { getPagesRequest } = this.props;
     getPagesRequest();
   };
@@ -27,7 +31,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(PagesActions, dispatch);
+  bindActionCreators({ ...PagesActions, ...AlbumsActions }, dispatch);
 
 export default connect(
   mapStateToProps,
