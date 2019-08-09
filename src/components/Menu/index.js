@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as ActionTypes } from "../../store/ducks/pages";
 import { StyledLink } from "./styles";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 class Menu extends Component {
@@ -51,12 +52,12 @@ class Menu extends Component {
         >
           <FontAwesomeIcon icon={faEnvelope} />
         </StyledLink>
-        <StyledLink to={"//instagram.com/chun_fotografia/"} target="_blank">
+        <Link to={"//instagram.com/chun_fotografia/"} target="_blank">
           <FontAwesomeIcon icon={faInstagram} />
-        </StyledLink>
-        <StyledLink to={"//facebook.com/Chunfotografia/"} target="_blank">
+        </Link>
+        <Link to={"//facebook.com/Chunfotografia/"} target="_blank">
           <FontAwesomeIcon icon={faFacebook} />
-        </StyledLink>
+        </Link>
       </div>
     );
   }
