@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.div`
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: ${props => props.center && "center"};
 `;
