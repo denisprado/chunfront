@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display:flex;
-  position:relative;
-  bottom:0;
-  height:60px;
+  display: flex;
+  position: relative;
+  bottom: 0;
+  height: 60px;
   background: transparent;
-  width:100%;
+  width: 100%;
 `;
 
 export const Content = styled.div`
-width:100%;
+  width: 100%;
   display: flex;
-  position:absolute;
+  position: absolute;
   flex-direction: row;
   justify-content: space-between;
-  padding: 30px;
+  padding: 30px 60px;
 `;
 
 export const MadeBy = styled.div``;

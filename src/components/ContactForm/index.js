@@ -9,7 +9,11 @@ import { Section, Row, Column } from "../../styles/components";
 import { Link } from "react-router-dom";
 import { Container, Input, Button } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import {
+  faInstagram,
+  faFacebook,
+  faWhatsapp
+} from "@fortawesome/free-brands-svg-icons";
 
 const schema = Yup.object().shape({
   name: Yup.string().required("Qual é o seu nome?"),
@@ -42,11 +46,18 @@ class ContactForm extends Component {
             <Column col={3}>
               <h2>Entre em contato</h2>
               <Link to={"//instagram.com/chun_fotografia/"} target="_blank">
-                <FontAwesomeIcon icon={faInstagram} />
+                <p>
+                  <FontAwesomeIcon icon={faInstagram} /> Instagram
+                </p>
               </Link>
               <Link to={"//facebook.com/Chunfotografia/"} target="_blank">
-                <FontAwesomeIcon icon={faFacebook} />
+                <p>
+                  <FontAwesomeIcon icon={faFacebook} /> Facebook
+                </p>
               </Link>
+              <p>
+                <FontAwesomeIcon icon={faWhatsapp} /> Whatsapp: 19 999999
+              </p>
             </Column>
             <Column col={5}>
               <Form
