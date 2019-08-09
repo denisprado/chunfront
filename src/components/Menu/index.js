@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as ActionTypes } from "../../store/ducks/pages";
-import { StyledLink } from "./styles";
+import { StyledHashLink, StyledHashLink } from "./styles";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -29,35 +29,35 @@ class Menu extends Component {
       <div>
         {!pages.loading
           ? pages.data.map(page => (
-              <StyledLink key={page.id} smooth to={`#${page.title}`}>
+              <StyledHashLink key={page.id} smooth to={`#${page.title}`}>
                 {!(page.title === "home") && page.title}
-              </StyledLink>
+              </StyledHashLink>
             ))
           : null}
-        <StyledLink
+        <StyledHashLink
           smooth
           to={"#albums"}
           scroll={el => this.scrollWithOffset(el, 110)}
         >
           portifolio
-        </StyledLink>
+        </StyledHashLink>
 
         {
           // scroll={el => this.scrollWithOffset(el, 60)}
         }
-        <StyledLink
+        <StyledHashLink
           smooth
           to={"#contato"}
           scroll={el => this.scrollWithOffset(el, 60)}
         >
           <FontAwesomeIcon icon={faEnvelope} />
-        </StyledLink>
-        <Link to={"//instagram.com/chun_fotografia/"} target="_blank">
+        </StyledHashLink>
+        <StyledLink to={"//instagram.com/chun_fotografia/"} target="_blank">
           <FontAwesomeIcon icon={faInstagram} />
-        </Link>
-        <Link to={"//facebook.com/Chunfotografia/"} target="_blank">
+        </StyledLink>
+        <StyledLink to={"//facebook.com/Chunfotografia/"} target="_blank">
           <FontAwesomeIcon icon={faFacebook} />
-        </Link>
+        </StyledLink>
       </div>
     );
   }

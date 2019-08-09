@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { Form } from "@rocketseat/unform";
 import { Section, Row, Column } from "../../styles/components";
 import { Link } from "react-router-dom";
-import { Container, Input, Button } from "./styles";
+import { Container, Input, Button, StyledSocialMedia } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -46,18 +46,18 @@ class ContactForm extends Component {
             <Column col={3}>
               <h2>Entre em contato</h2>
               <Link to={"//instagram.com/chun_fotografia/"} target="_blank">
-                <p>
+                <StyledSocialMedia>
                   <FontAwesomeIcon icon={faInstagram} /> Instagram
-                </p>
+                </StyledSocialMedia>
               </Link>
               <Link to={"//facebook.com/Chunfotografia/"} target="_blank">
-                <p>
+                <StyledSocialMedia>
                   <FontAwesomeIcon icon={faFacebook} /> Facebook
-                </p>
+                </StyledSocialMedia>
               </Link>
-              <p>
+              <StyledSocialMedia>
                 <FontAwesomeIcon icon={faWhatsapp} /> Whatsapp: 19 999999
-              </p>
+              </StyledSocialMedia>
             </Column>
             <Column col={5}>
               <Form
