@@ -51,10 +51,10 @@ class Menu extends Component {
         >
           <FontAwesomeIcon icon={faEnvelope} />
         </StyledLink>
-        <StyledLink to={"http://instagram.com"}>
+        <StyledLink to={"//instagram.com/chun_fotografia/"} target="_blank">
           <FontAwesomeIcon icon={faInstagram} />
         </StyledLink>
-        <StyledLink to={"http://facebook.com"}>
+        <StyledLink to={"//facebook.com/Chunfotografia/"} target="_blank">
           <FontAwesomeIcon icon={faFacebook} />
         </StyledLink>
       </div>
