@@ -43,6 +43,8 @@ export const Column = styled.div`
   flex-shrink: ${props => (props.col ? props.col : 1)};
   background: ${props => props.bg && "rgba(33, 33, 33, 0.85)"};
   padding: ${props => props.bg && `15px`};
-  object-fit: none; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
+  img {
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+  }
 `;
