@@ -4,7 +4,7 @@ import { Container, StyledLink } from "./styles";
 
 const Logo = (props) => (
   <Container>
-    <StyledLink smooth to="#top">
+    <StyledLink>
       <strong>CHUN</strong> FOTOGRAFIA {props.children}
     </StyledLink>
   </Container>

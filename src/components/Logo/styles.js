@@ -8,5 +8,5 @@ export const Container = styled.div`
 `;
 
 export const StyledLink = styled(HashNavLink)`
-  margin: 15px 30px;
+  margin: 15px 15px;
 `;
