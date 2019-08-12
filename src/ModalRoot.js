@@ -1,66 +1,45 @@
-import React from "react";
-import { connect } from "react-redux";
-import Modal from "react-modal";
-import AlbumFilesModal from "./pages/AlbumFiles";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Dialog from '@material-ui/core/Dialog';
 
-Modal.setAppElement("#root");
+import AlbumFiles from "./pages/AlbumFiles";
+import { Creators as ModalActions } from './store/ducks/modal'
 
-const MODAL_COMPONENTS = {
-  ALBUM_FILES: AlbumFilesModal
-};
+export default function ModalRoot() {
 
-const customStyles = {};
+  const dispatch = useDispatch();
 
-const mapStateToProps = state => ({
-  ...state.modal
-});
+  const MODAL_COMPONENTS = {
+    ALBUM_FILES: AlbumFiles
+  };
 
-class ModalRoot extends React.Component {
+  const modalIsOpen = useSelector(state => state.modal.modalIsOpen)
+  const data = useSelector(state => state.modal.data)
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalIsOpen: false
-    };
-    this.closeModal = this.closeModal.bind(this);
+  useEffect(() => { }, [modalIsOpen])
+
+  function closeModal() {
+    dispatch(ModalActions.closeModal());
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps !== this.props) {
-      this.setState({
-        modalIsOpen: nextProps.data.open
-      });
-    }
+  if (!data.modalType) {
+    return null;
   }
+  const SpecifiedModal = MODAL_COMPONENTS[data.modalType];
 
-  closeModal() {
-    this.setState({ modalIsOpen: false });
-  }
-
-  render() {
-    const { data } = this.props;
-    const { modalIsOpen } = this.state;
-    if (!data.modalType) {
-      return null;
-    }
-    const SpecifiedModal = MODAL_COMPONENTS[data.modalType];
-
-    return (
-      <div>
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          closeModal={this.closeModal}
-        >
-          <SpecifiedModal {...data} />
-        </Modal>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Dialog
+        open={modalIsOpen}
+        onClose={closeModal}
+        onBackdropClick={closeModal}
+        fullScreen={true}
+      >
+        <SpecifiedModal {...data} />
+      </Dialog>
+    </div>
+  );
 }
 
-export default connect(
-  mapStateToProps,
-  null
-)(ModalRoot);
+
+

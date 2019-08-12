@@ -1,21 +1,27 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Creators as ModalActions } from "../../store/ducks/modal";
 import { Creators as AlbumsActions } from "../../store/ducks/albums";
 import { Column, Row } from "../../styles/components";
 // import { Container } from './styles';
 
 function AlbumRow({ albumRow }) {
+
   const dispatch = useDispatch();
 
-  const handleOpenAlbumFiles = useCallback(() => {
-    dispatch(AlbumsActions.openAlbumFiles());
-  });
+  function handleOpenAlbumFiles(id) {
+    dispatch(AlbumsActions.selectAlbum(id))
+    dispatch(ModalActions.openModal({
+      modalType: 'ALBUM_FILES',
+    }));
+  };
+
   return (
     <Link
       key={albumRow.id}
       to={`/albums/${albumRow.id}`}
-      onClick={() => handleOpenAlbumFiles()}
+      onClick={() => handleOpenAlbumFiles(albumRow.id)}
     >
       <Row relative>
         <Column col={12}>

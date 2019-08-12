@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding: 30px 60px;
   background: transparent;
   height: 80px;
-  z-index: 99999;
+  z-index: 1;
 `;
 
 export const Content = styled.div`
