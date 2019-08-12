@@ -4,7 +4,7 @@ import AlbumRow from "./AlbumRow";
 
 const AlbumListData = ({ albumsData }) =>
   _(albumsData)
-    .map(albumRow => <AlbumRow key={albumsData.id} albumRow={albumRow} />)
+    .map(albumRow => <AlbumRow key={albumRow.id} albumRow={albumRow} />)
     .value();
 
 export default AlbumListData;

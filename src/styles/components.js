@@ -29,7 +29,7 @@ export const Row = styled.div`
     ${props => (props.col ? `${((12 - props.col) * (100 / 12)) / 2}%` : null)};
   position: ${props => (props.relative ? "relative" : null)};
   background: ${props => props.bg && "rgba(33, 33, 33, 0.85)"};
-  padding: ${props => props.bg && `30px`};
+  padding-right: ${props => props.bg && `15px`};
 `;
 
 export const Column = styled.div`
