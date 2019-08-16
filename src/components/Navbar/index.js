@@ -5,12 +5,12 @@ import Menu from "../Menu";
 
 import { Container, Content } from "./styles";
 
-const Navbar = () => (
+const Navbar = (props) => (
   <div id="top">
     <Container>
       <Content>
-        <Logo />
-        <Menu />
+        <Logo>{props.logo}</Logo>
+        <Menu>{props.menu}</Menu>
       </Content>
     </Container>
   </div>

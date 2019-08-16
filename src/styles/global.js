@@ -64,7 +64,10 @@ const GlobalStyle = createGlobalStyle`
   .thumbnails{
     border: 1px solid grey;
   }
-
+  .MuiDialogTitle-root{
+    background:#212121;
+    color:#fff;
+  }
 `;
 
 export default GlobalStyle;

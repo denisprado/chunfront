@@ -11,7 +11,9 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.div`
+  background-color:${props => props.bg && props.bg === true ? '#373737' : props.bg};
   min-height: 100vh;
+  height:100vh;
   display: flex;
   align-items: ${props => props.center && "center"};
 `;
@@ -23,13 +25,14 @@ export const Content = styled.div`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
+  justify-items: space-between;
   flex-wrap: wrap;
   width: 100%;
   margin: 0
     ${props => (props.col ? `${((12 - props.col) * (100 / 12)) / 2}%` : null)};
   position: ${props => (props.relative ? "relative" : null)};
   background: ${props => props.bg && "rgba(33, 33, 33, 0.85)"};
-  padding: ${props => props.bg && `30px`};
+  padding-right: ${props => props.p && props.p === true ? '15px' : props.p};
 `;
 
 export const Column = styled.div`
@@ -42,7 +45,15 @@ export const Column = styled.div`
   flex-basis: 30px;
   flex-shrink: ${props => (props.col ? props.col : 1)};
   background: ${props => props.bg && "rgba(33, 33, 33, 0.85)"};
+  background-image: ${props => props.bgImg && `url(${props.bgImg})`};
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: ${props => props.bg && `15px`};
-  object-fit: none; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
+  img {
+    object-fit: cover; 
+    object-position: center;
+    max-height: 100vh;
+  }
 `;

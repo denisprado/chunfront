@@ -1,109 +1,110 @@
-import React, { Component } from "react";
-import ImageGallery from "react-image-gallery";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { NavLink as Link } from "react-router-dom";
-import { Creators as ActionAlbums } from "../../store/ducks/albums";
-import { Container, Section, Column, Row, Grid } from "../../styles/components";
-import { BrowserRouter as Router } from "react-router-dom";
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import Drawer from '@material-ui/core/Drawer';
+import DialogTitle from '@material-ui/core/DialogTitle'
+import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import Gallery from 'react-grid-gallery';
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink as Link } from "react-router-dom";
+import AlbumList from "../../components/AlbumList";
+import Logo from '../../components/Logo';
+import { Creators as ModalActions } from "../../store/ducks/modal";
+import { Column, Grid, Row, Section } from "../../styles/components";
 
-import { ContainerAlbums } from "./styles";
+export default function AlbumFiles() {
+  //states
+  const albums = useSelector(state => state.albums.data);
+  const idAlbumSelected = useSelector(state => state.albums.selected)
 
-class AlbumFiles extends Component {
-  handleCloseAlbum() {
-    const { closeAlbumFiles } = this.props;
-    closeAlbumFiles();
+  // dispatch
+  const dispatch = useDispatch();
+  function handleCloseAlbum() {
+    dispatch(ModalActions.closeModal());
   }
 
-  render() {
-    const { albums, match } = this.props;
+  // selecionando album
+  let albumSelected = albums.filter(
+    album => album.id === idAlbumSelected
+  );
 
-    let albumSelected = albums.filter(
-      album => album.id === parseInt(match.params.id, 10)
-    );
+  let images =
+    albumSelected[0].Files &&
+    albumSelected[0].Files.map(file => ({
+      src: file.url,
+      thumbnail: file.url,
+      thumbnailWidth: 20,
+      thumbnailHeight: 12,
+    }));
 
-    let images =
-      albumSelected[0].Files &&
-      albumSelected[0].Files.map(file => ({
-        original: file.url,
-        thumbnail: file.url,
-        thumbnailClass: "featured-thumb",
-        media: "(max-height: 960px)"
-      }));
+  const [state, setState] = React.useState({
+    right: false
+  });
 
-    return (
-      <Container>
-        <ContainerAlbums>
-          <Section center>
-            <Row col={12} id="albums">
-              <Column col={1}>
-                <Grid col={1}>
-                  {albums
-                    ? albums.map(album => (
-                      <Link
-                        key={album.id}
-                        to={`/albums/${album.id}`}
-                        activeStyle={{
-                          fontWeight: "bold",
-                          border: "1px solid grey"
-                        }}
-                      >
-                        {album.thumbImage && (
-                          <Row relative>
-                            <Router>
-                              <Column col={12}>
-                                <img
-                                  className="hero-image"
-                                  src={album.thumbImage.url}
-                                  alt={album.title}
-                                  width="100%"
-                                />
-                              </Column>
-                              <Column
-                                absolute
-                                col={12}
-                                left={0}
-                                bottom={0}
-                                bg
-                              >
-                                <h3>{album.title}</h3>
-                              </Column>
-                            </Router>
-                          </Row>
-                        )}
-                      </Link>
-                    ))
-                    : null}
-                </Grid>
-              </Column>
-              <Column col={1} />
-              <Column col={8}>
-                <ImageGallery items={images} thumbnailPosition="right" />
-              </Column>
-              <Column col={1} />
-              <Column col={1}>
-                <Link to="#album" onClick={() => this.handleCloseAlbum()}>
-                  <FontAwesomeIcon icon={faWindowClose} />
-                </Link>
-              </Column>
-            </Row>
-          </Section>
-        </ContainerAlbums>
-      </Container>
-    );
-  }
+  // estilos do Drawer 
+  const useStyles = makeStyles({
+    list: {
+      width: 250,
+    }
+  });
+  const classes = useStyles();
+
+  const toggleDrawer = (side, open) => event => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [side]: open });
+  };
+
+  return (
+    <>
+      <DialogTitle disableTypography>
+        <Row>
+          <Column col={11}>
+            <Link to="#albums" onClick={() => handleCloseAlbum()}>
+              <Logo>{albumSelected[0].title}</Logo>
+            </Link>
+          </Column>
+          <Column col={1}>
+            <Link onClick={toggleDrawer('right', true)}>OUTROS ÁLBUMS </Link>
+            <Link to="#albums" onClick={() => handleCloseAlbum()}>
+              <FontAwesomeIcon icon={faTimesCircle} />
+            </Link>
+          </Column>
+        </Row>
+      </DialogTitle>
+      <Section center bg={'#212121'}>
+        <Row id="albums" col={10}>
+
+          <Column col={8}>
+            <Gallery images={images} enableImageSelection={false} maxRows={3}
+              showLightboxThumbnails={true} />
+          </Column>
+
+
+          <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+            <Section bg>
+              <Row br>
+                <Column bg>
+                  <div
+                    className={classes.list}
+                    role="presentation"
+                    onClick={toggleDrawer('right', false)}
+                    onKeyDown={toggleDrawer('right', false)}
+                  >
+                    <Grid col={1}>
+                      <AlbumList />
+                    </Grid>
+                  </div>
+                </Column>
+              </Row>
+            </Section>
+
+          </Drawer>
+
+        </Row>
+      </Section>
+    </>
+  );
 }
-
-const mapStateToProps = state => ({
-  albums: state.albums.data
-});
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(ActionAlbums, dispatch);
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AlbumFiles);

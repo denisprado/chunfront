@@ -13,22 +13,26 @@ import Page from "./pages/Page";
 import store from "./store";
 import { Container } from "./styles/components";
 import GlobalStyle from "./styles/global";
+import { ScrollUpButton } from 'react-scroll-up-button'
 
-const App = () => (
-  <Provider store={store}>
-    <Router>
-      <GlobalStyle />
-      <ModalRoot />
-      <Container>
-        <Navbar />
-        <ErrorBox />
-        <Page />
-        <Albums />
-        <ContactForm />
-        <Footer />
-      </Container>
-    </Router>
-  </Provider>
-);
+// import { Container } from './styles';
 
-export default App;
+export default function App() {
+  return (
+    <Provider store={store}>
+      <Router>
+        <GlobalStyle />
+        <ModalRoot />
+        <Container>
+          <Navbar />
+          <ErrorBox />
+          <Page />
+          <Albums />
+          <ContactForm />
+          <Footer />
+        </Container>
+      </Router>
+    </Provider>
+
+  );
+}
