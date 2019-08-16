@@ -49,7 +49,7 @@ export default function Menu() {
       <StyledHashLink
         smooth
         to={"#contato"}
-        scroll={el => this.scrollWithOffset(el, 60)}
+        scroll={el => scrollWithOffset(el, 60)}
       >
         <FontAwesomeIcon icon={faEnvelope} />
       </StyledHashLink>
