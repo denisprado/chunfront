@@ -15,6 +15,7 @@
     "query-string": "^6.8.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-grid-gallery": "^0.5.5",
     "react-html-parser": "^2.0.2",
     "react-image-gallery": "^0.8.18",
     "react-modal": "^3.9.1",
