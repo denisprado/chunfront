@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import "typeface-exo-2";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -68,6 +67,22 @@ const GlobalStyle = createGlobalStyle`
     background:#212121;
     color:#fff;
   }
+
+  .AnyClassForContainer {
+  position: fixed;
+  right: -100px;
+  bottom: 150px;
+  transition: right 0.5s;
+  cursor: pointer;
+  background-color: transparent;
+z-index:99;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.AnyClassForTransition {
+  right: 60px;
+}
 `;
 
 export default GlobalStyle;

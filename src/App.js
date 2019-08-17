@@ -13,8 +13,7 @@ import Page from "./pages/Page";
 import store from "./store";
 import { Container } from "./styles/components";
 import GlobalStyle from "./styles/global";
-import { ScrollUpButton } from 'react-scroll-up-button'
-
+import TopButton from "./components/TopButton";
 // import { Container } from './styles';
 
 export default function App() {
@@ -23,6 +22,7 @@ export default function App() {
       <Router>
         <GlobalStyle />
         <ModalRoot />
+        <TopButton />
         <Container>
           <Navbar />
           <ErrorBox />
@@ -33,6 +33,5 @@ export default function App() {
         </Container>
       </Router>
     </Provider>
-
   );
 }
