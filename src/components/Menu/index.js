@@ -24,12 +24,12 @@ export default function Menu() {
     dispatch(AlbumsActions.getAlbumsRequest());
   }, [dispatch]);
 
-  const pages = useSelector(state => state.pages);
+  const pages = useSelector(state => state.pages.data);
 
   return (
     <div>
       {
-        pages.data.map(page => (
+        pages.map(page => (
           <StyledHashLink key={page.id} smooth to={`#${page.title}`}>
             {!(page.title === "home") && page.title}
           </StyledHashLink>
