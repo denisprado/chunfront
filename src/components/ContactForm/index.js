@@ -40,61 +40,53 @@ class ContactForm extends Component {
   }
   render() {
     return (
-      <Container>
-        <Section center>
-          <Row bg id="contato" col={8}>
-            <Column col={3}>
-              <h2>Entre em contato</h2>
-              <Link to={"//instagram.com/chun_fotografia/"} target="_blank">
-                <StyledSocialMedia>
-                  <FontAwesomeIcon icon={faInstagram} /> Instagram
-                </StyledSocialMedia>
-              </Link>
-              <Link to={"//facebook.com/Chunfotografia/"} target="_blank">
-                <StyledSocialMedia>
-                  <FontAwesomeIcon icon={faFacebook} /> Facebook
-                </StyledSocialMedia>
-              </Link>
-              <StyledSocialMedia>
-                <FontAwesomeIcon icon={faWhatsapp} /> Whatsapp: 19 999999
-              </StyledSocialMedia>
-            </Column>
-            <Column col={5}>
-              <Form
-                schema={schema}
-                id="contact-form"
-                onSubmit={this.handleSubmit}
-              >
-                <Row>
-                  <Column col={2}>
-                    <label htmlFor="name">Nome</label>
-                  </Column>
-                  <Column col={6}>
-                    <Input type="text" name="name" id="name" />
-                  </Column>
-                </Row>
-                <Row>
-                  <Column col={2}>
-                    <label htmlFor="exampleInputEmail1">Email</label>
-                  </Column>
-                  <Column col={6}>
-                    <Input type="email" name="email" id="email" />
-                  </Column>
-                </Row>
-                <Row>
-                  <Column col={2}>
-                    <label htmlFor="message">Mensagem</label>
-                  </Column>
-                  <Column col={6}>
-                    <Input multiline name="message" rows="5" id="message" />
-                    <Button type="submit">Enviar</Button>
-                  </Column>
-                </Row>
-              </Form>
-            </Column>
-          </Row>
-        </Section>
-      </Container>
+      <>
+        <Column col={3}>
+          <h2>Entre em contato</h2>
+          <Link to={"//instagram.com/chun_fotografia/"} target="_blank">
+            <StyledSocialMedia>
+              <FontAwesomeIcon icon={faInstagram} /> Instagram
+            </StyledSocialMedia>
+          </Link>
+          <Link to={"//facebook.com/Chunfotografia/"} target="_blank">
+            <StyledSocialMedia>
+              <FontAwesomeIcon icon={faFacebook} /> Facebook
+            </StyledSocialMedia>
+          </Link>
+          <StyledSocialMedia>
+            <FontAwesomeIcon icon={faWhatsapp} /> Whatsapp: 19 999999
+          </StyledSocialMedia>
+        </Column>
+        <Column col={5}>
+          <Form schema={schema} id="contact-form" onSubmit={this.handleSubmit}>
+            <Row>
+              <Column col={2}>
+                <label htmlFor="name">Nome</label>
+              </Column>
+              <Column col={6}>
+                <Input type="text" name="name" id="name" />
+              </Column>
+            </Row>
+            <Row>
+              <Column col={2}>
+                <label htmlFor="exampleInputEmail1">Email</label>
+              </Column>
+              <Column col={6}>
+                <Input type="email" name="email" id="email" />
+              </Column>
+            </Row>
+            <Row>
+              <Column col={2}>
+                <label htmlFor="message">Mensagem</label>
+              </Column>
+              <Column col={6}>
+                <Input multiline name="message" rows="5" id="message" />
+                <Button type="submit">Enviar</Button>
+              </Column>
+            </Row>
+          </Form>
+        </Column>
+      </>
     );
   }
 }

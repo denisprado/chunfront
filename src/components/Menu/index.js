@@ -28,24 +28,12 @@ export default function Menu() {
 
   return (
     <div>
-      {
-        pages.map(page => (
-          <StyledHashLink key={page.id} smooth to={`#${page.title}`}>
-            {!(page.title === "home") && page.title}
-          </StyledHashLink>
-        ))
-      }
-      <StyledHashLink
-        smooth
-        to={"#albums"}
-        scroll={el => scrollWithOffset(el, 110)}
-      >
-        portifolio
+      {pages.map(page => (
+        <StyledHashLink key={page.id} smooth to={`#${page.title}`}>
+          {!(page.title === "home") && page.title}
         </StyledHashLink>
+      ))}
 
-      {
-        // scroll={el => this.scrollWithOffset(el, 60)}
-      }
       <StyledHashLink
         smooth
         to={"#contato"}

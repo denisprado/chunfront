@@ -1,22 +1,20 @@
+import Dialog from "@material-ui/core/Dialog";
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Dialog from '@material-ui/core/Dialog';
-
-import AlbumFiles from "./pages/AlbumFiles";
-import { Creators as ModalActions } from './store/ducks/modal'
+import { useDispatch, useSelector } from "react-redux";
+import AlbumFiles from "./components/AlbumFiles";
+import { Creators as ModalActions } from "./store/ducks/modal";
 
 export default function ModalRoot() {
-
   const dispatch = useDispatch();
 
   const MODAL_COMPONENTS = {
     ALBUM_FILES: AlbumFiles
   };
 
-  const modalIsOpen = useSelector(state => state.modal.modalIsOpen)
-  const data = useSelector(state => state.modal.data)
+  const modalIsOpen = useSelector(state => state.modal.modalIsOpen);
+  const data = useSelector(state => state.modal.data);
 
-  useEffect(() => { }, [modalIsOpen])
+  useEffect(() => {}, [modalIsOpen]);
 
   function closeModal() {
     dispatch(ModalActions.closeModal());
