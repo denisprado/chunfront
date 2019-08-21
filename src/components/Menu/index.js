@@ -30,13 +30,13 @@ export default function Menu() {
     <div>
       {pages.map(page => (
         <StyledHashLink key={page.id} smooth to={`#${page.title}`}>
-          {!(page.title === "home") && page.title}
+          {!(page.title === "home" || page.title === "contact") && page.title}
         </StyledHashLink>
       ))}
 
       <StyledHashLink
         smooth
-        to={"#contato"}
+        to={"#contact"}
         scroll={el => scrollWithOffset(el, 60)}
       >
         <FontAwesomeIcon icon={faEnvelope} />
