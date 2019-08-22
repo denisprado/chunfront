@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { NavHashLink as HashNavLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 export const Grid = styled.div`
   display: grid;
@@ -58,4 +60,14 @@ export const Column = styled.div`
     object-position: center;
     max-height: 100vh;
   }
+`;
+
+export const StyledHashLink = styled(HashNavLink)`
+  margin: 15px;
+  text-shadow: 1px 1px 0px #212121;
+`;
+
+export const StyledLink = styled(Link)`
+  margin: 15px;
+  text-shadow: 1px 1px 0px #212121;
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavHashLink as HashNavLink } from "react-router-hash-link";
+
 
 export const Container = styled.div`
   a {
@@ -7,6 +7,9 @@ export const Container = styled.div`
   }
 `;
 
-export const StyledLink = styled(HashNavLink)`
+export const StyledLink = styled.a`
   margin: 15px 30px;
+  
+  cursor:pointer;
+  
 `;

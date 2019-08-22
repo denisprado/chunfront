@@ -47,7 +47,6 @@ export const Button = styled.button`
 `;
 
 export const StyledSocialMedia = styled.p`
-  margin: 15px;
-
+  margin: 15px 15px 0 0;
   text-transform: uppercase;
 `;

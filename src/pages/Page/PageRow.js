@@ -15,9 +15,7 @@ export default class Page extends Component {
 
           {pageRow.title === "contact" ? (
             <>
-              <Column bg col={5} top={2} left={5} absolute>
-                <ContactForm />
-              </Column>
+              <ContactForm />
             </>
           ) : pageRow.title === "portifolio" ? (
             <>
@@ -30,12 +28,12 @@ export default class Page extends Component {
               </Column>
             </>
           ) : (
-            <>
-              <Column col={3} top={3} left={2} absolute>
-                {ReactHtmlParser(pageRow.content)}
-              </Column>
-            </>
-          )}
+                <>
+                  <Column col={3} top={3} left={2} absolute>
+                    {ReactHtmlParser(pageRow.content)}
+                  </Column>
+                </>
+              )}
         </Row>
       </Section>
     );

@@ -1,16 +1,15 @@
-import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Drawer from "@material-ui/core/Drawer";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import Drawer from "@material-ui/core/Drawer";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import Gallery from "react-grid-gallery";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink as Link } from "react-router-dom";
 import AlbumList from "../../components/AlbumList";
-import Logo from "../../components/Logo";
+import Navbar from '../../components/Navbar';
 import { Creators as ModalActions } from "../../store/ducks/modal";
-import { Column, Grid, Row, Section } from "../../styles/components";
+import { Column, Grid, Row, Section, StyledHashLink } from "../../styles/components";
 
 export default function AlbumFiles() {
   //states
@@ -61,19 +60,19 @@ export default function AlbumFiles() {
   return (
     <>
       <DialogTitle disableTypography>
-        <Row>
-          <Column col={11}>
-            <Link to="#albums" onClick={() => handleCloseAlbum()}>
-              <Logo>{albumSelected[0].title}</Logo>
-            </Link>
-          </Column>
-          <Column col={1}>
-            <Link onClick={toggleDrawer("right", true)}>OUTROS ÁLBUMS </Link>
-            <Link to="#albums" onClick={() => handleCloseAlbum()}>
-              <FontAwesomeIcon icon={faTimesCircle} />
-            </Link>
-          </Column>
-        </Row>
+
+        <Navbar logo={albumSelected[0].title} menu={
+          <>
+            <StyledHashLink to="#"
+              onClick={toggleDrawer("right", true)}
+            >OUTROS ÁLBUMS
+            </StyledHashLink>
+            <StyledHashLink to="#albums" onClick={() => handleCloseAlbum()}>
+              <FontAwesomeIcon icon={faTimes} />
+            </StyledHashLink>
+          </>
+        }></Navbar>
+
       </DialogTitle>
       <Section bg={"#212121"}>
         <Row relative id="albums">

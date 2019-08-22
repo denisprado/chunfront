@@ -5,9 +5,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Creators as AlbumsActions } from "../../store/ducks/albums";
 import { Creators as PagesActions } from "../../store/ducks/pages";
-import { StyledHashLink, StyledLink } from "./styles";
+import { StyledHashLink, StyledLink } from "../../styles/components";
 
-export default function Menu() {
+export default function Menu(props) {
   function scrollWithOffset(el, offset) {
     const elementPosition = el.offsetTop - offset;
     window.scroll({
@@ -27,26 +27,30 @@ export default function Menu() {
   const pages = useSelector(state => state.pages.data);
 
   return (
-    <div>
-      {pages.map(page => (
-        <StyledHashLink key={page.id} smooth to={`#${page.title}`}>
-          {!(page.title === "home" || page.title === "contact") && page.title}
-        </StyledHashLink>
-      ))}
+    !props.children ? (
+      <div>
+        {pages.map(page => (
+          <StyledHashLink key={page.id} smooth to={`#${page.title}`}>
+            {!(page.title === "home" || page.title === "contact") && page.title}
+          </StyledHashLink>
+        ))}
 
-      <StyledHashLink
-        smooth
-        to={"#contact"}
-        scroll={el => scrollWithOffset(el, 60)}
-      >
-        <FontAwesomeIcon icon={faEnvelope} />
-      </StyledHashLink>
-      <StyledLink to={"//instagram.com/chun_fotografia/"} target="_blank">
-        <FontAwesomeIcon icon={faInstagram} />
-      </StyledLink>
-      <StyledLink to={"//facebook.com/Chunfotografia/"} target="_blank">
-        <FontAwesomeIcon icon={faFacebook} />
-      </StyledLink>
-    </div>
+        <StyledHashLink
+          smooth
+          to={"#contact"}
+          scroll={el => scrollWithOffset(el, 60)}
+        >
+          <FontAwesomeIcon icon={faEnvelope} />
+        </StyledHashLink>
+        <StyledLink to={"//instagram.com/chun_fotografia/"} target="_blank">
+          <FontAwesomeIcon icon={faInstagram} />
+        </StyledLink>
+        <StyledLink to={"//facebook.com/Chunfotografia/"} target="_blank">
+          <FontAwesomeIcon icon={faFacebook} />
+        </StyledLink>
+      </div>
+    ) : (
+        <div>{props.children}</div>
+      )
   );
 }
