@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { Creators as ContactFormActions } from "../../store/ducks/contactForm";
-import { Creators as ErrorActions } from "../../store/ducks/error";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as Yup from "yup";
-import { Form } from "@rocketseat/unform";
-import { Section, Row, Column } from "../../styles/components";
-import { Link } from "react-router-dom";
-import { Container, Input, Button, StyledSocialMedia } from "./styles";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faInstagram,
   faFacebook,
+  faInstagram,
   faWhatsapp
 } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Form } from "@rocketseat/unform";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import * as Yup from "yup";
+import { Creators as ContactFormActions } from "../../store/ducks/contactForm";
+import { Creators as ErrorActions } from "../../store/ducks/error";
+import { Column, Row } from "../../styles/components";
+import { Button, Input, StyledSocialMedia } from "./styles";
 
 const schema = Yup.object().shape({
   name: Yup.string().required("Qual é o seu nome?"),

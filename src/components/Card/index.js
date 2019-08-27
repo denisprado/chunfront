@@ -18,7 +18,7 @@ export default function Card(props) {
   }));
   return (
     <StiledCard
-      class="card"
+      className="card"
       onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
       onMouseLeave={() => set({ xys: [0, 0, 1] })}
       style={{ transform: animationProps.xys.interpolate(trans) }}
