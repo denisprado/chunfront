@@ -35,12 +35,12 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: #9c9c9c;
+      color: #acacac;
     &:hover {
-      color: #8a8a8a;
+    color: #c7c7c7;
     }
     &:active {
-      color: #777777;
+      color: #e3e3e3;
     }
   }
 
@@ -66,21 +66,23 @@ const GlobalStyle = createGlobalStyle`
   .MuiDialogTitle-root{
     background:#212121;
     color:#fff;
+    padding:0px !important; 
   }
 
-  .AnyClassForContainer {
+  .ClassForContainer {
   position: fixed;
   right: -100px;
-  bottom: 150px;
+  bottom: 80px;
   transition: right 0.5s;
   cursor: pointer;
-  background-color: transparent;
-z-index:99;
-  font-size: 20px;
-  padding: 10px;
+  background-color: rgba(33, 33, 33, 0.75);
+  border-radius: 50%;
+  z-index:99;
+  font-size: 18px;
+  padding: 15px;
 }
 
-.AnyClassForTransition {
+.ClassForTransition {
   right: 60px;
 }
 `;
@@ -103,14 +105,20 @@ export default GlobalStyle;
   "70": "#e3e3e3",
   "80": "#dbdbdb",
   "90": "#d2d2d2",
+
   "100": "#c7c7c7",
   "110": "#bababa",
+
   "120": "#acacac",
+
   "130": "#9c9c9c",
   "140": "#8a8a8a",
+
   "150": "#777777",
+
   "160": "#626262",
   "170": "#4d4d4d",
+
   "180": "#373737",
   "190": "#212121"
 }

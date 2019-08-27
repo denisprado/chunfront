@@ -27,10 +27,10 @@ function AlbumRow({ album }) {
     >
       <Card>
         <Row relative>
-          <Column col={12}>
+          <Column col={12} colsm={12}>
             <img src={album.thumbImage.url} alt={album.title} width="100%" />
           </Column>
-          <Column absolute col={12} left={0} bottom={0} bg>
+          <Column absolute col={12} colsm={12} colmd={12} left={0} bottom={0} bg>
             <h3>{album.title}</h3>
           </Column>
         </Row>

@@ -12,8 +12,8 @@ function TopButton() {
       ShowAtPosition={40}
       EasingType="easeOutCubic"
       AnimationDuration={500}
-      ContainerClassName="AnyClassForContainer"
-      TransitionClassName="AnyClassForTransition"
+      ContainerClassName="ClassForContainer"
+      TransitionClassName="ClassForTransition"
     >
       <FontAwesomeIcon icon={faArrowUp} />
     </ScrollUpButton>

@@ -41,7 +41,19 @@ class ContactForm extends Component {
   render() {
     return (
       <>
-        <Column bg col={2} absolute left={2} top={2}>
+        <Column
+          bg
+          absolute
+          col={2}
+          colsm={10}
+          colmd={10}
+          left={2}
+          leftsm={1}
+          leftmd={1}
+          top={2}
+          topsm={1}
+          topmd={1}
+        >
           <h2>Entre em contato</h2>
           <Link to={"//instagram.com/chun_fotografia/"} target="_blank">
             <StyledSocialMedia>
@@ -57,7 +69,19 @@ class ContactForm extends Component {
             <FontAwesomeIcon icon={faWhatsapp} /> Whatsapp: 19 999999
           </StyledSocialMedia>
         </Column>
-        <Column col={4} absolute left={5} bg top={2}>
+        <Column
+          col={4}
+          absolute
+          left={5}
+          bg
+          top={2}
+          colsm={10}
+          colmd={10}
+          leftsm={1}
+          leftmd={1}
+          topsm={4}
+          topmd={4}
+        >
           <Form schema={schema} id="contact-form" onSubmit={this.handleSubmit}>
             <Row>
               <Column col={2}>
