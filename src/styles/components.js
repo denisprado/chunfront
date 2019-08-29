@@ -5,13 +5,19 @@ import { Link } from "react-router-dom";
 export const Grid = styled.div`
   display: grid;
   grid-gap: 30px;
-  @media (max-width:684px) {
-    grid-template-columns: repeat(${props => (props.colsm ? props.colsm : 8)}, 1fr);
+  @media (max-width: 684px) {
+    grid-template-columns: repeat(
+      ${props => (props.colsm ? props.colsm : 8)},
+      1fr
+    );
   }
-  @media (min-width:685px) and (max-width:1024px) {
-    grid-template-columns: repeat(${props => (props.colmd ? props.colmd : 8)}, 1fr);
+  @media (min-width: 685px) and (max-width: 1024px) {
+    grid-template-columns: repeat(
+      ${props => (props.colmd ? props.colmd : 8)},
+      1fr
+    );
   }
-  @media (min-width:1025px) {
+  @media (min-width: 1025px) {
     grid-template-columns: repeat(${props => (props.col ? props.col : 8)}, 1fr);
   }
 `;
@@ -49,24 +55,49 @@ export const Row = styled.div`
 
 export const Column = styled.div`
   position: ${props => props.absolute && "absolute"};
-  
-  @media (max-width:684px) {
-    width: ${props => props.absolute && `${(props.colsm ? props.colsm : props.colmd ? props.colmd : props.col ? props.col : 1) * (100 / 12)}%`};
-    flex-grow: ${props => (props.colsm ? props.colsm : props.colmd ? props.colmd : props.col ? props.col : 1)};
-    flex-shrink: ${props => (props.colsm ? props.colsm : props.colmd ? props.colmd : props.col ? props.col : 1)};
+
+  @media (max-width: 684px) {
+    width: ${props =>
+      props.absolute &&
+      `${(props.colsm
+        ? props.colsm
+        : props.colmd
+        ? props.colmd
+        : props.col
+        ? props.col
+        : 1) *
+        (100 / 12)}%`};
+    flex-grow: ${props =>
+      props.colsm
+        ? props.colsm
+        : props.colmd
+        ? props.colmd
+        : props.col
+        ? props.col
+        : 1};
+    flex-shrink: ${props =>
+      props.colsm
+        ? props.colsm
+        : props.colmd
+        ? props.colmd
+        : props.col
+        ? props.col
+        : 1};
     left: ${props => props.leftsm && `${props.leftsm * (100 / 12)}%`};
     top: ${props => props.topsm && `${props.topsm * (100 / 12)}%`};
     bottom: ${props => props.bottomsm && `${props.bottomsm * (100 / 12)}%`};
   }
-  @media  (min-width:685px) and (max-width:1024px) {
+  @media (min-width: 685px) and (max-width: 1024px) {
     width: ${props => props.absolute && `${props.colmd * (100 / 12)}%`};
-    flex-grow: ${props => (props.colmd ? props.colmd : props.col ? props.col : 1)};
-    flex-shrink: ${props => (props.colmd ? props.colmd : props.col ? props.col : 1)};
+    flex-grow: ${props =>
+      props.colmd ? props.colmd : props.col ? props.col : 1};
+    flex-shrink: ${props =>
+      props.colmd ? props.colmd : props.col ? props.col : 1};
     left: ${props => props.leftmd && `${props.leftmd * (100 / 12)}%`};
     top: ${props => props.topmd && `${props.topmd * (100 / 12)}%`};
     bottom: ${props => props.bottommd && `${props.bottommd * (100 / 12)}%`};
   }
-  @media (min-width:1025px) {
+  @media (min-width: 1025px) {
     left: ${props => props.left && `${props.left * (100 / 12)}%`};
     width: ${props => props.absolute && `${props.col * (100 / 12)}%`};
     flex-grow: ${props => (props.col ? props.col : 1)};
@@ -82,7 +113,7 @@ export const Column = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: ${props => props.bg && `30px`};
+  padding: ${props => props.bg && `15px`};
   img {
     object-fit: cover;
     object-position: center;
