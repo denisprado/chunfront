@@ -1,21 +1,12 @@
-import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Creators as AlbumsActions } from "../../store/ducks/albums";
 import { Creators as PagesActions } from "../../store/ducks/pages";
-import { StyledHashLink, StyledLink } from "../../styles/components";
+import { StyledHashLink } from "../../styles/components";
+import SocialIcons from '../SocialIcons'
 
 export default function Menu(props) {
-  function scrollWithOffset(el, offset) {
-    const elementPosition = el.offsetTop - offset;
-    window.scroll({
-      top: elementPosition,
-      left: 0,
-      behavior: "smooth"
-    });
-  }
+
 
   const dispatch = useDispatch();
 
@@ -34,20 +25,7 @@ export default function Menu(props) {
             {!(page.title === "home" || page.title === "contact") && page.title}
           </StyledHashLink>
         ))}
-
-        <StyledHashLink
-          smooth
-          to={"#contact"}
-          scroll={el => scrollWithOffset(el, 60)}
-        >
-          <FontAwesomeIcon icon={faEnvelope} />
-        </StyledHashLink>
-        <StyledLink to={"//instagram.com/chun_fotografia/"} target="_blank">
-          <FontAwesomeIcon icon={faInstagram} />
-        </StyledLink>
-        <StyledLink to={"//facebook.com/Chunfotografia/"} target="_blank">
-          <FontAwesomeIcon icon={faFacebook} />
-        </StyledLink>
+        <SocialIcons />
       </div>
     ) : (
         <div>{props.children}</div>
