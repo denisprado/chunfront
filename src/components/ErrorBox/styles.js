@@ -5,16 +5,17 @@ export const Container = styled.div`
   line-height: 42px;
   padding: 30px 15px ;
   color: rgba(255,555,555,.6);
-  background: ${ props => props.ok ? '#00aa00' : ' #f55a5a'};
-  margin: 0px 0 10px 0;
-  font-size: 13px;
+  background: ${ props => props.ok ? '#00aa00' : ' #ff555a'};
+  margin: 0px center;
+  font-size: 18px;
   display: flex;
   border-radius: 3px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: absolute;
-    width: 100%;
-    top: 68px;
+  width: 30%;
+  bottom:0;
+  font-weight:700;
 
   button {
     color:rgba(255,555,555,.6);

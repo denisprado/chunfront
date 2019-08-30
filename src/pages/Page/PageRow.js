@@ -19,7 +19,16 @@ export default class Page extends Component {
             </>
           ) : pageRow.title === "portifolio" ? (
             <>
-              <Column col={8} colmd={10} colsm={10} left={2} leftsm={1} leftmd={1} left={2} absolute>
+              <Column
+                col={8}
+                colmd={10}
+                colsm={10}
+                left={2}
+                leftsm={1}
+                leftmd={1}
+                left={2}
+                absolute
+              >
                 <Section center>
                   <Grid col={3} colmd={2} colsm={2}>
                     <AlbumList />

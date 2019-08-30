@@ -12,7 +12,7 @@ import { Container } from "./styles";
 const ErrorBox = ({ error: { message, visible, ok }, hideError }) =>
   visible && (
     <Container ok={ok}>
-      <p>{message}</p>
+      <h3>{message}</h3>
       <button type="button" onClick={hideError}>
         <img src={CloseIcon} alt="Fechar" />
       </button>

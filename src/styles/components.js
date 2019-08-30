@@ -24,6 +24,7 @@ export const Grid = styled.div`
 
 export const Container = styled.div`
   width: 100%;
+  min-height: 100vh;
 `;
 
 export const Section = styled.div`
@@ -58,31 +59,31 @@ export const Column = styled.div`
 
   @media (max-width: 684px) {
     width: ${props =>
-      props.absolute &&
-      `${(props.colsm
-        ? props.colsm
-        : props.colmd
+    props.absolute &&
+    `${(props.colsm
+      ? props.colsm
+      : props.colmd
         ? props.colmd
         : props.col
-        ? props.col
-        : 1) *
-        (100 / 12)}%`};
+          ? props.col
+          : 1) *
+    (100 / 12)}%`};
     flex-grow: ${props =>
-      props.colsm
-        ? props.colsm
-        : props.colmd
+    props.colsm
+      ? props.colsm
+      : props.colmd
         ? props.colmd
         : props.col
-        ? props.col
-        : 1};
+          ? props.col
+          : 1};
     flex-shrink: ${props =>
-      props.colsm
-        ? props.colsm
-        : props.colmd
+    props.colsm
+      ? props.colsm
+      : props.colmd
         ? props.colmd
         : props.col
-        ? props.col
-        : 1};
+          ? props.col
+          : 1};
     left: ${props => props.leftsm && `${props.leftsm * (100 / 12)}%`};
     top: ${props => props.topsm && `${props.topsm * (100 / 12)}%`};
     bottom: ${props => props.bottomsm && `${props.bottomsm * (100 / 12)}%`};
@@ -90,9 +91,9 @@ export const Column = styled.div`
   @media (min-width: 685px) and (max-width: 1024px) {
     width: ${props => props.absolute && `${props.colmd * (100 / 12)}%`};
     flex-grow: ${props =>
-      props.colmd ? props.colmd : props.col ? props.col : 1};
+    props.colmd ? props.colmd : props.col ? props.col : 1};
     flex-shrink: ${props =>
-      props.colmd ? props.colmd : props.col ? props.col : 1};
+    props.colmd ? props.colmd : props.col ? props.col : 1};
     left: ${props => props.leftmd && `${props.leftmd * (100 / 12)}%`};
     top: ${props => props.topmd && `${props.topmd * (100 / 12)}%`};
     bottom: ${props => props.bottommd && `${props.bottommd * (100 / 12)}%`};
