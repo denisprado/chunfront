@@ -26,7 +26,6 @@ export default class Page extends Component {
                 left={2}
                 leftsm={1}
                 leftmd={1}
-                left={2}
                 absolute
               >
                 <Section center>
@@ -37,23 +36,24 @@ export default class Page extends Component {
               </Column>
             </>
           ) : (
-                <>
-                  <Column col={4}
-                    colsm={10}
-                    colmd={10}
-                    top={3}
-                    topsm={2}
-                    topmd={3}
-                    left={2}
-                    leftsm={1}
-                    leftmd={1}
-                    absolute
-                    bg
-                  >
-                    {ReactHtmlParser(pageRow.content)}
-                  </Column>
-                </>
-              )}
+            <>
+              <Column
+                col={4}
+                colsm={10}
+                colmd={10}
+                top={3}
+                topsm={2}
+                topmd={3}
+                left={2}
+                leftsm={1}
+                leftmd={1}
+                absolute
+                bg
+              >
+                {ReactHtmlParser(pageRow.content)}
+              </Column>
+            </>
+          )}
         </Row>
       </Section>
     );
