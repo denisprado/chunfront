@@ -11,48 +11,42 @@ export default class Page extends Component {
     return (
       <Section>
         <Row relative id={pageRow.title}>
-          <Column col={12} bgImg={image.url} />
+          <Column col={12} bgImg={image && image.url} />
 
           {pageRow.title === "contact" ? (
-            <>
-              <ContactForm />
-            </>
+            <ContactForm />
           ) : pageRow.title === "portifolio" ? (
-            <>
-              <Column
-                col={8}
-                colmd={10}
-                colsm={10}
-                left={2}
-                leftsm={1}
-                leftmd={1}
-                absolute
-              >
-                <Section center>
-                  <Grid col={3} colmd={2} colsm={2}>
-                    <AlbumList />
-                  </Grid>
-                </Section>
-              </Column>
-            </>
+            <Column
+              col={8}
+              colmd={10}
+              colsm={10}
+              left={2}
+              leftsm={1}
+              leftmd={1}
+              absolute
+            >
+              <Section center>
+                <Grid col={3} colmd={2} colsm={2}>
+                  <AlbumList />
+                </Grid>
+              </Section>
+            </Column>
           ) : (
-            <>
-              <Column
-                col={4}
-                colsm={10}
-                colmd={10}
-                top={3}
-                topsm={2}
-                topmd={3}
-                left={2}
-                leftsm={1}
-                leftmd={1}
-                absolute
-                bg
-              >
-                {ReactHtmlParser(pageRow.content)}
-              </Column>
-            </>
+            <Column
+              col={4}
+              colsm={10}
+              colmd={10}
+              top={3}
+              topsm={2}
+              topmd={3}
+              left={2}
+              leftsm={1}
+              leftmd={1}
+              absolute
+              bg
+            >
+              {ReactHtmlParser(pageRow.content)}
+            </Column>
           )}
         </Row>
       </Section>

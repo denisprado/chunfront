@@ -19,7 +19,7 @@ function AlbumRow({ album }) {
     );
   }
 
-  return (
+  return album.thumbImage ? (
     <Link
       key={album.id}
       to={`/albums/${album.id}`}
@@ -30,13 +30,21 @@ function AlbumRow({ album }) {
           <Column col={12} colsm={12}>
             <img src={album.thumbImage.url} alt={album.title} width="100%" />
           </Column>
-          <Column absolute col={12} colsm={12} colmd={12} left={0} bottom={0} bg>
+          <Column
+            absolute
+            col={12}
+            colsm={12}
+            colmd={12}
+            left={0}
+            bottom={0}
+            bg
+          >
             <h3>{album.title}</h3>
           </Column>
         </Row>
       </Card>
     </Link>
-  );
+  ) : null;
 }
 
 export default AlbumRow;
